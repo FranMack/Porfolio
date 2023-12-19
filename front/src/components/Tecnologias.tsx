@@ -2,7 +2,8 @@ import React from "react";
 
 function Tecnologias() {
   return (
-    <section className="w-full h-[100vh] bg-orange-400 flex justify-center items-center">
+    <section className="w-full h-[100vh] bg-orange-400 ">
+        <h3 className="text-[1.5rem] font-semibold">Tecnologías</h3>
         <div className="h-[100%] w-[100%] flex justify-center items-center flex-wrap gap-10">
       <div className="h-[15%] w-[15%] bg-white  flex justify-center items-center">
         <svg
