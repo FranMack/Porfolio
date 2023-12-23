@@ -1,11 +1,16 @@
 import React from "react";
 import fotoCV from "../assets/fotoCV.jpeg"
 
-function AboutMe() {
+interface AboutMeProps{
+  referencia: React.MutableRefObject<HTMLDivElement | null >; }
+
+function AboutMe({referencia}:AboutMeProps) {
   return (
-    <section className="w-full h-[100vh] bg-blue-800 mx-auto flex justify-center items-center">
-      <div className="bg-yellow-400 w-1/2 h-[100%] flex flex-col items-center justify-center">
-        <h3 className="text-[2.5rem] font-semibold mb-[5%]">Sobre mi</h3>
+    <section ref={referencia} className="w-full h-[100vh] pt-[12vh]">
+      <h2 className="ml-[5%] text-[1.5rem] font-medium">CONTACTO</h2>
+      <div className="w-full h-[100%]  mx-auto flex justify-center items-center">
+      <div className=" w-1/2 h-[100%] flex flex-col items-center justify-center">
+        <h3 className="text-[2.5rem] font-semibold mb-[5%]">Quien soy?</h3>
         <p className="text-[1.4rem] mx-[5%]">
           Soy un desarrollador full stack con sólidas aptitudes para la
           resolución de problemas, trabajo en equipo, planificación y
@@ -23,14 +28,14 @@ function AboutMe() {
         </p>
         <h3 className="bg-blue-400 mt-[5%] p-[2%] rounded">DOWNLOAD MY CV</h3>
       </div>
-      <div className="bg-yellow-200 w-1/2 h-[100%] flex justify-center items-center">
-        <div className="h-1/2 square bg-red-400  overflow-hidden">
-            <img className=" h-full w-full object-fill" src={fotoCV} alt="" />
+      <div className="w-1/2 h-[100%] flex justify-center items-center">
+        <div className="h-1/2 aspect-square rounded-full bg-red-400  overflow-hidden">
+            <img className=" h-full w-full object-cover " src={fotoCV} alt="" />
 
         </div>
 
       </div>
-     
+      </div>
     </section>
   );
 }

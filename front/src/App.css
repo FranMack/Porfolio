@@ -7,3 +7,31 @@
   padding: 0;
   margin: 0;
 }
+
+body{
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(125,20,72,1) 100%, rgba(0,212,255,1) 100%);
+  color:white
+}
+
+.textMotion {
+  display: block;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 4px solid;
+  width: 20ch;
+
+  animation: typing 2s steps(20), blink 0.5s infinite step-end alternate;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
