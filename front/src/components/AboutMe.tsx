@@ -2,12 +2,13 @@ import React from "react";
 import fotoCV from "../assets/fotoCV.jpeg"
 
 interface AboutMeProps{
-  referencia: React.MutableRefObject<HTMLDivElement | null >; }
+  referencia: React.MutableRefObject<HTMLDivElement | null >; 
+  aboutMeMotion:boolean}
 
-function AboutMe({referencia}:AboutMeProps) {
+function AboutMe({referencia,aboutMeMotion}:AboutMeProps) {
   return (
-    <section ref={referencia} className="w-full h-[100vh] pt-[12vh]">
-      <h2 className="ml-[5%] text-[1.5rem] font-medium">CONTACTO</h2>
+    <section ref={referencia} className={`${aboutMeMotion ?"opacity-100 scale-100":"opacity-0 scale-0"} duration-1000 w-full h-[100vh] pt-[12vh]`}>
+      <h2 className="ml-[5%] text-[1.5rem] font-medium">SOBRE MI</h2>
       <div className="w-full h-[100%]  mx-auto flex justify-center items-center">
       <div className=" w-1/2 h-[100%] flex flex-col items-center justify-center">
         <h3 className="text-[2.5rem] font-semibold mb-[5%]">Quien soy?</h3>
@@ -29,8 +30,8 @@ function AboutMe({referencia}:AboutMeProps) {
         <h3 className="bg-blue-400 mt-[5%] p-[2%] rounded">DOWNLOAD MY CV</h3>
       </div>
       <div className="w-1/2 h-[100%] flex justify-center items-center">
-        <div className="h-1/2 aspect-square rounded-full bg-red-400  overflow-hidden">
-            <img className=" h-full w-full object-cover " src={fotoCV} alt="" />
+        <div className="h-1/2 aspect-square rounded-full overflow-hidden">
+            <img className= {`${aboutMeMotion ? "rotate-0":"rotate-90"} h-full w-full object-cover duration-1000`} src={fotoCV} alt="" />
 
         </div>
 

@@ -1,5 +1,6 @@
 const clase = "h-[55%] mr-[5%]";
 
+
 const redux = (
   <svg
     className={`${clase}`}
@@ -340,9 +341,9 @@ preserveAspectRatio="xMidYMid"
 </svg>
 
 
-export const tecnologias=[{name:"html",svg:html},{name:"css",svg:css},{name:"javascript",svg:javascript},
+
+
+export const tecnologias=[{name:"html",svg:html},{name:"css",svg:css},{name:"javascript",svg:javascript},{name:"typescript",svg:typescript},
 {name:"react",svg:react},{name:"tailwind",svg:tailwind},{name:"mui",svg:mui},{name:"nodejs",svg:nodejs},{name:"mongodb",svg:mongodb},{name:"postgres",svg:postgres},
 {name:"sequelize",svg:sequelize},{name:"express",svg:express},{name:"git",svg:git},{name:"github",svg:github},{name:"redux",svg:redux}]
 
-
-export const contacto=[{name:"html",svg:html},{name:"css",svg:css},{name:"git",svg:git},{name:"github",svg:github}]

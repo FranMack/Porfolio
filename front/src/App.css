@@ -14,13 +14,13 @@ body{
 }
 
 .textMotion {
+  text-align: center;
   display: block;
   font-family: monospace;
   white-space: nowrap;
   border-right: 4px solid;
-  width: 20ch;
-
-  animation: typing 2s steps(20), blink 0.5s infinite step-end alternate;
+  width: 24ch;
+  animation: typing 3s steps(24) , blink 0.5s infinite step-end alternate;
   overflow: hidden;
 }
 
@@ -35,3 +35,91 @@ body{
     border-color: transparent;
   }
 }
+
+.revealImage {
+ animation-name: reveal;
+ animation-timing-function:linear;
+ animation-fill-mode: both;
+ animation-timeline: view();
+ animation-range: entry 20% cover 30%;
+ 
+}
+
+@keyframes reveal{
+  from{
+    opacity: 0;
+    scale:0.5;
+    transform: translateY(100px) 
+  
+
+  }
+  to{
+    opacity: 1;
+    scale:1;
+    transform: translateY(0px)
+  }
+}
+
+.tecnoReveal{
+  animation-name: tecoReveal;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes tecoReveal{
+  from {
+    transform: scale(0.1) translateY(-500px) 
+
+  }
+  to{
+    transform: scale(1) translateY(0px) 
+  }
+
+}
+
+
+.contactRevealLeft{
+  animation-name: contactRevealLeft;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+
+@keyframes contactRevealLeft{
+  from {
+    transform:  translateX(-1000px);
+    opacity: 0;
+
+
+  }
+  to{
+    transform:  translateX(0px);
+    opacity: 1;
+  }
+
+}
+
+.contactRevealRight{
+  animation-name: contactRevealRight;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  ;
+}
+
+
+@keyframes contactRevealRight{
+  from {
+    transform:  translateX(1000px);
+    opacity: 0;
+
+  }
+  to{
+    transform:  translateX(0px) ;
+    opacity: 1;
+  }
+
+}
+

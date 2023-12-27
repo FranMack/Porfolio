@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-import { ChangeEvent } from "react";
-import { contacto } from "../assets/logos/logos";
+import { SocialMedia } from "../assets/SocialMedia";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-interface ContactProps{
-  referencia: React.MutableRefObject<HTMLDivElement | null>; }
+interface ContactProps {
+  referencia: React.MutableRefObject<HTMLDivElement | null>;
+  contactMotion:boolean
+}
 
-function Contact({referencia}:ContactProps) {
-
-
+function Contact({ referencia,contactMotion }: ContactProps) {
   const singUpForm = useFormik({
     initialValues: {
       name: "",
@@ -33,23 +32,32 @@ function Contact({referencia}:ContactProps) {
     }),
 
     onSubmit: (values) => {
-      axios.post("https://formspree.io/f/xgegwpzd", {
-        name: values.name,
-        subject: values.subject,
-        email: values.email,
-        message: values.message,
-      })
-      .then((response)=>{console.log(response.data)
-        singUpForm.resetForm();})
-      .catch((error)=>{console.log(error)})
+      axios
+        .post("https://formspree.io/f/xgegwpzd", {
+          name: values.name,
+          subject: values.subject,
+          email: values.email,
+          message: values.message,
+        })
+        .then((response) => {
+          console.log(response.data);
+          singUpForm.resetForm();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   });
 
   return (
-    <section ref={referencia} id="contacto" className="w-full h-[100vh] pt-[12vh]">
+    <section
+      ref={referencia}
+      id="contacto"
+      className={` w-full h-[100vh] pt-[12vh]  `}
+    >
       <h2 className="ml-[5%] text-[1.5rem] font-medium">CONTACTO</h2>
       <div className="w-full h-[100%]  flex justify-center items-start  ">
-        <div className="w-1/2 h-[70%]  flex items-center flex-col justify-center">
+        <div className={`${contactMotion ? "contactRevealLeft":"opacity-0"} w-1/2 h-[70%]  flex items-center flex-col justify-center`}>
           <div className="w-[80%]">
             <h3 className="text-[1.2rem] font-medium ">Contactemonos:</h3>
             <p className="mt-[2%] text-[1.05rem]">
@@ -59,18 +67,30 @@ function Contact({referencia}:ContactProps) {
               responderte!
             </p>
           </div>
-          <div className="w-[60%] h-[11%] my-[2%] flex justify-around items-center">
-            {contacto.map((contac) => {
+          <div className="w-[60%] h-[14%] my-[2%] flex justify-center items-center">
+            {SocialMedia.map((media) => {
               return (
-                <div className=" aspect-square rounded-full h-[100%]  bg-white  flex justify-center items-center shadow-lg shadow-shodowGrey400">
-                  {contac.svg}
+                <div className="aspect-square rounded-full h-[100%] flex justify-center items-center shadow-lg shadow-shodowGrey400 mr-[5%] hover:text-yellow-500">
+                  <Link
+                    to={media.link}
+                    target="_blank"
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    {media.icon}
+                  </Link>
                 </div>
               );
             })}
           </div>
         </div>
 
-        <div className="w-1/2 ">
+        <div className={`${contactMotion ? "contactRevealRight":"opacity-0"} w-1/2`} >
           <form
             onSubmit={singUpForm.handleSubmit}
             className="flex flex-col items-start w-[80%] rounded-lg mx-auto p-[3%] shadow-lg shadow-shodowGrey400"
@@ -154,7 +174,7 @@ function Contact({referencia}:ContactProps) {
             </p>
             <button
               type="submit"
-              className="w-full h-[7vh] my-[2%] bg-blue-700 text-white rounded-lg text-[1.2rem] font-medium"
+              className="w-full h-[7vh] my-[2%] bg-[#090126] text-white rounded-lg text-[1.2rem] font-medium"
             >
               ENVIAR MENSAJE
             </button>

@@ -6,7 +6,8 @@ import Tecnologias from './components/Tecnologias'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import { useRef} from 'react'
+import { useEffect, useRef, useState} from 'react'
+import { boolean } from 'yup'
 
 
 function App() {
@@ -33,15 +34,48 @@ function App() {
   }
 
  
+  const [aboutMeMotion,setAboutMeMotion]=useState<boolean>(false)
+  const [tecnoMotion,setTecnoMotion]=useState<boolean>(false)
+  const [contactMotion,setContactMotion]=useState<boolean>(false)
 
+ 
+
+  window.addEventListener("scroll",()=>{
+    if(sobreMi && sobreMi.current){
+    if(sobreMi.current.offsetTop>0 && sobreMi.current.offsetTop/1.5<=window.scrollY){
+      setAboutMeMotion(true)
+      console.dir(sobreMi.current)
+    }
+   if(tecnologias.current.offsetTop>0 && tecnologias.current.offsetTop<=window.scrollY){
+    setAboutMeMotion(false)
+   }
+
+   if(tecnologias.current.offsetTop>0 && tecnologias.current.offsetTop/1.5<=window.scrollY){
+    setTecnoMotion(true)
+  
+  }
+
+  if(contacto.current.offsetTop>0 && contacto.current.offsetTop/1.13<=window.scrollY){
+    setContactMotion(true)
+    console.log("xxxxxxxxx",contacto.current.offsetTop/1.5)
+    console.log("yyyyyyyyyyyyyy",window.scrollY)
+  
+  }
+  }
+
+  })
+
+
+
+console.log("contact",contactMotion)
   return (
     <>
     <Navbar itemsNavbar={itemsNavbar} scrollHandler={scrollHandler}/>
     <Home referencia={home}/>
-    <AboutMe referencia={sobreMi}/>
-    <Tecnologias referencia={tecnologias}/>
+    <AboutMe referencia={sobreMi} aboutMeMotion={aboutMeMotion} />
+    <Tecnologias referencia={tecnologias} tecnoMotion={tecnoMotion} />
     <Projects referencia={proyectos}/>
-    <Contact referencia={contacto}/>
+    <Contact referencia={contacto} contactMotion={contactMotion}/>
     <Footer/>
    
     </>

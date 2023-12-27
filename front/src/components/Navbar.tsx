@@ -7,7 +7,7 @@ interface NavbarProps {
 
 function Navbar({ itemsNavbar, scrollHandler, }: NavbarProps) {
   return (
-    <nav className="w-full h-[12vh] flex items-center justify-between fixed shadow-lg shadow-shodowGrey400 bg-gradient-to-r from-[#080126] via-bluee-500 to-[#7a1347]">
+    <nav className="w-full h-[12vh] flex items-center justify-between fixed shadow-lg shadow-shodowGrey400 bg-gradient-to-r from-[#080126] via-bluee-500 to-[#7a1347] z-50">
       <h1 className="ml-[2%] text-[2rem]">FJM</h1>
       <ul className="flex justify-around w-[40%]">
         {itemsNavbar.map((item, i) => (
