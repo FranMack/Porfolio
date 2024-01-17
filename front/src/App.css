@@ -2,124 +2,272 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-body{
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(125,20,72,1) 100%, rgba(0,212,255,1) 100%);
-  color:white
+body {
+  background-color: #121212;
+  color: white;
+  font-family: monospace;
 }
+
+
 
 .textMotion {
   text-align: center;
   display: block;
   font-family: monospace;
   white-space: nowrap;
-  border-right: 4px solid;
-  width: 24ch;
-  animation: typing 3s steps(24) , blink 0.5s infinite step-end alternate;
+  border-right: 4px solid transparent;
+  animation: typing 1.5s steps(24) 2s, blink 0.5s  infinite step-end alternate 2s;
   overflow: hidden;
+  animation-fill-mode: both;
+  font-size: 6vh;
+  color:transparent;
+  background-color: rgb(234 179 8);
+  -webkit-text-stroke: 1px rgb(234 179 8);
+  -webkit-background-clip: text;
+  
+
+ background-position: 0 0;
+
 }
 
 @keyframes typing {
   from {
     width: 0;
+    
+  }
+  to {
+    width: 24ch;
   }
 }
 
 @keyframes blink {
   50% {
-    border-color: transparent;
+    border-color: rgb(234 179 8);
+  }
+}
+
+
+  .caricaturaMotion {
+    animation-name: caricaturaMotion;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-delay: 1.5s;
+  }
+  
+  @keyframes caricaturaMotion {
+    from {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+  
+
+.saludoReveal {
+  animation-name: saludoReveal;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+.saludoReveal2 {
+  animation-name: saludoReveal;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-delay: 0.7s;
+}
+
+.saludoReveal3 {
+  animation-name: saludoReveal;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-delay: 3.6s;
+}
+
+@keyframes saludoReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
 .revealImage {
- animation-name: reveal;
- animation-timing-function:linear;
- animation-fill-mode: both;
- animation-timeline: view();
- animation-range: entry 20% cover 30%;
- 
-}
-
-@keyframes reveal{
-  from{
-    opacity: 0;
-    scale:0.5;
-    transform: translateY(100px) 
-  
-
-  }
-  to{
-    opacity: 1;
-    scale:1;
-    transform: translateY(0px)
-  }
-}
-
-.tecnoReveal{
-  animation-name: tecoReveal;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
+  animation-name: reveal;
+  animation-timing-function: linear;
   animation-fill-mode: both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 30%;
 }
 
-@keyframes tecoReveal{
+@keyframes reveal {
   from {
-    transform: scale(0.1) translateY(-500px) 
-
+    opacity: 0;
+    scale: 0.5;
+    transform: translateY(100px);
   }
-  to{
-    transform: scale(1) translateY(0px) 
+  to {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0px);
   }
-
 }
 
 
-.contactRevealLeft{
-  animation-name: contactRevealLeft;
-  animation-duration: 2s;
+
+.efectoReveal {
+  animation-name: efectoReveal;
+  animation-duration: 1s;
   animation-timing-function: linear;
   animation-fill-mode: both;
 }
 
-
-@keyframes contactRevealLeft{
+@keyframes efectoReveal {
   from {
-    transform:  translateX(-1000px);
+    transform: translateY(100px);
     opacity: 0;
-
-
   }
-  to{
-    transform:  translateX(0px);
+  to {
+    transform: translateY(0px);
     opacity: 1;
   }
-
 }
 
-.contactRevealRight{
-  animation-name: contactRevealRight;
+.efectoRevealOut {
+  animation-name: efectoRevealOut;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes efectoRevealOut {
+  from {
+    transform: translateY(0px);
+    opacity: 01;
+  }
+  to {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+
+
+
+.revealRight {
+  animation-name: revealRight;
   animation-duration: 1.5s;
   animation-timing-function: linear;
   animation-fill-mode: both;
-  ;
+  animation-delay: 1s;
 }
 
-
-@keyframes contactRevealRight{
+@keyframes revealRight {
   from {
-    transform:  translateX(1000px);
+    transform: translateX(100px);
     opacity: 0;
-
   }
-  to{
-    transform:  translateX(0px) ;
+  to {
+    transform: translateX(0px);
     opacity: 1;
   }
-
 }
+
+.revealRightOut {
+  animation-name: revealRightOut;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+
+@keyframes revealRightOut {
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+  
+  }
+  to {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+.menuHamburAnimation {
+  animation-name: menuHamburAnimation;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes menuHamburAnimation {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.menuHamburAnimationOut {
+  animation-name: menuHamburAnimationOut;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes menuHamburAnimationOut {
+  from {
+    transform:  translateX(0px);
+  }
+  to {
+    transform:  translateX(200%);;
+  }
+}
+
+.menuHamburAnimationInit {
+  transform: translateX(200%);
+  opacity: 0;
+}
+
+
+.arrowDownAnimation{
+  animation-name: arrowDownAnimation;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function:ease;
+  animation-fill-mode: both;
+  animation-delay: 3.6s;
+}
+
+@keyframes arrowDownAnimation {
+  from {
+    transform:  translateY(0px);
+    
+  }
+  to {
+    transform:  translateY(4px);;
+    
+  }
+}
+
 

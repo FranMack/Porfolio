@@ -1,15 +1,17 @@
-import { SocialMedia } from "../assets/SocialMedia";
+import { SocialMedia } from "../commons/SocialMedia";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FaArrowCircleUp } from "react-icons/fa";
 
 interface ContactProps {
   referencia: React.MutableRefObject<HTMLDivElement | null>;
-  contactMotion:boolean
+  itemsNavbar: { name: string; scroll: React.MutableRefObject<HTMLDivElement | null> }[];
+  scrollHandler: (elemRef: React.MutableRefObject<HTMLDivElement | null>) => void;
 }
 
-function Contact({ referencia,contactMotion }: ContactProps) {
+function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
   const singUpForm = useFormik({
     initialValues: {
       name: "",
@@ -53,11 +55,11 @@ function Contact({ referencia,contactMotion }: ContactProps) {
     <section
       ref={referencia}
       id="contacto"
-      className={` w-full h-[100vh] pt-[12vh]  `}
+      className={`contactoSection w-full h-auto pt-[12vh]`}
     >
       <h2 className="ml-[5%] text-[1.5rem] font-medium">CONTACTO</h2>
-      <div className="w-full h-[100%]  flex justify-center items-start  ">
-        <div className={`${contactMotion ? "contactRevealLeft":"opacity-0"} w-1/2 h-[70%]  flex items-center flex-col justify-center`}>
+      <div className="w-full h-auto h-min-[90vh]  flex justify-center items-start lg:flex-row xs:flex-col xs:items-center  ">
+        <div className={`socialMedia efectoRevealOut w-1/2 min-h-[40vh] h-[70%]  flex items-center flex-col justify-center xs:w-[90%]`}>
           <div className="w-[80%]">
             <h3 className="text-[1.2rem] font-medium ">Contactemonos:</h3>
             <p className="mt-[2%] text-[1.05rem]">
@@ -67,7 +69,7 @@ function Contact({ referencia,contactMotion }: ContactProps) {
               responderte!
             </p>
           </div>
-          <div className="w-[60%] h-[14%] my-[2%] flex justify-center items-center">
+          <div className="w-[60%] h-[8vh]  my-[2%] flex justify-center items-cente">
             {SocialMedia.map((media) => {
               return (
                 <div className="aspect-square rounded-full h-[100%] flex justify-center items-center shadow-lg shadow-shodowGrey400 mr-[5%] hover:text-yellow-500">
@@ -90,7 +92,7 @@ function Contact({ referencia,contactMotion }: ContactProps) {
           </div>
         </div>
 
-        <div className={`${contactMotion ? "contactRevealRight":"opacity-0"} w-1/2`} >
+        <div className={`formulario efectoRevealOut w-1/2 xs:w-[100%]`} >
           <form
             onSubmit={singUpForm.handleSubmit}
             className="flex flex-col items-start w-[80%] rounded-lg mx-auto p-[3%] shadow-lg shadow-shodowGrey400"
@@ -174,13 +176,18 @@ function Contact({ referencia,contactMotion }: ContactProps) {
             </p>
             <button
               type="submit"
-              className="w-full h-[7vh] my-[2%] bg-[#090126] text-white rounded-lg text-[1.2rem] font-medium"
+              className="w-full h-[7vh] mt-[2%] bg-yellow-500 text-black rounded-lg text-[1.2rem] font-medium hover:bg-yellow-600 font-semibold"
             >
               ENVIAR MENSAJE
             </button>
           </form>
         </div>
       </div>
+      <div className="w-full flex justify-center mb-[2%]">
+      <button onClick={()=>scrollHandler(itemsNavbar[0].scroll)} className=" text-[6vh] rounded-full text-yellow-400 arrowDownAnimation mx-auto">
+    <FaArrowCircleUp/>
+    </button>
+    </div>
     </section>
   );
 }
