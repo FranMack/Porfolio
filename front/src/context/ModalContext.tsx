@@ -1,8 +1,12 @@
-import React, { useState, createContext, ReactNode } from "react";
+import{ useState, createContext, ReactNode } from "react";
 
 interface ModalContextValue {
   menuOpen: boolean;
-  togleMenu: () => void |null;
+  togleMenu: () => void | null;
+}
+
+interface ModalContextProviderProps {
+  children: ReactNode;
 }
 
 const modalContextDefaultValue: ModalContextValue = {
@@ -12,9 +16,7 @@ const modalContextDefaultValue: ModalContextValue = {
 
 export const ModalContext = createContext(modalContextDefaultValue);
 
-interface ModalContextProviderProps {
-  children: ReactNode;
-}
+
 
 const ModalContextProvider = ({ children }: ModalContextProviderProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,9 +31,7 @@ const ModalContextProvider = ({ children }: ModalContextProviderProps) => {
   };
 
   return (
-    <ModalContext.Provider value={value}>
-      {children}
-    </ModalContext.Provider>
+    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
   );
 };
 

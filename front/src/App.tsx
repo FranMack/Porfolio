@@ -1,12 +1,10 @@
 import "./App.css";
-import Footer from "./components/Footer";
 import ProjectInfo from "./views/ProyectInfo";
-import { useRef} from "react";
+import { useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
 
 function App() {
   const start = useRef([]);
@@ -18,8 +16,8 @@ function App() {
   //start
 
   const startSection = document.querySelector(".startSection");
-
   useEffect(() => {
+    const startSection = document.querySelector(".startSection");
     if (startSection) {
       start.current = {
         seccion: startSection,
@@ -30,12 +28,12 @@ function App() {
     if (aboutMeSection) {
       const selectedParrafos = document.querySelectorAll(".parrafo");
       const selectedImage = document.querySelector(".imagenAboutMe");
-      const selectedButton=document.querySelector(".botonCV")
+      const selectedButton = document.querySelector(".botonCV");
       sobreMi.current = {
         parrafos: [...selectedParrafos],
         imagen: selectedImage,
         seccion: aboutMeSection,
-        boton:selectedButton
+        boton: selectedButton,
       };
     }
 
@@ -77,8 +75,7 @@ function App() {
     const imageTrigger = window.innerHeight * 0.5;
     const tecnoTrigger = window.innerHeight;
     const contactTrigger = window.innerHeight * 0.7;
-    const triggerButtonCV = window.innerHeight *1.1;
-
+    const triggerButtonCV = window.innerHeight * 1.1;
 
     //parrafos about me
     sobreMi.current.parrafos.forEach((parrafo) => {
@@ -190,13 +187,8 @@ function App() {
     navigate("/");
   };
 
- 
-
-
   return (
     <>
-   
-    
       <Routes>
         <Route
           path="/"
@@ -214,7 +206,6 @@ function App() {
         />
         <Route path="/:name" element={<ProjectInfo />} />
       </Routes>
-      <Footer />
     </>
   );
 }

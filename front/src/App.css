@@ -2,44 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --primaryColor:#ff012b;
+  --secundaryColor:white;
+  --bgColor:#121212;
+  --gradient1:rgba(18, 18, 18, 1);
+  --gradient2:rgba(255, 1, 43, 1);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+.fondoStart {
+  background: linear-gradient(
+    -51deg,
+    var(--gradient1) 85%,
+    var(--gradient2) 100%
+  );
+  animation-name: fondoStart;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes fondoStart {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fondo {
+  background: linear-gradient(
+    231deg,
+    var(--gradient1) 85%,
+    var(--gradient2) 100%
+  );
+}
+
 body {
-  background-color: #121212;
-  color: white;
+  background-color:var(--bgColor);
+  color: var(--secundaryColor);
   font-family: monospace;
 }
 
-
+.textoSinFondo {
+  -webkit-text-stroke: 1px var(--secundaryColor);
+  color: transparent;
+  border-right: 4px solid transparent;
+}
 
 .textMotion {
   text-align: center;
   display: block;
-  font-family: monospace;
   white-space: nowrap;
   border-right: 4px solid transparent;
-  animation: typing 1.5s steps(24) 2s, blink 0.5s  infinite step-end alternate 2s;
+  animation: typing 1.5s steps(24) 2s, blink 0.5s infinite step-end alternate 2s,
+    backgroundEfect 20s 3s infinite linear;
   overflow: hidden;
   animation-fill-mode: both;
   font-size: 6vh;
-  color:transparent;
-  background-color: rgb(234 179 8);
-  -webkit-text-stroke: 1px rgb(234 179 8);
+  color: transparent;
+  background-color: var(--primaryColor);
+  -webkit-text-stroke: 1px var(--primaryColor);
   -webkit-background-clip: text;
-  
 
- background-position: 0 0;
-
+  background-position: 0 0;
 }
 
 @keyframes typing {
   from {
     width: 0;
-    
   }
   to {
     width: 24ch;
@@ -48,30 +86,34 @@ body {
 
 @keyframes blink {
   50% {
-    border-color: rgb(234 179 8);
+    border-color: var(--primaryColor);
   }
 }
 
+@keyframes backgroundEfect {
+  100% {
+    background-position: 2000px 0;
+  }
+}
 
-  .caricaturaMotion {
-    animation-name: caricaturaMotion;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-    animation-delay: 1.5s;
+.caricaturaMotion {
+  animation-name: caricaturaMotion;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-delay: 1.5s;
+}
+
+@keyframes caricaturaMotion {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
   }
-  
-  @keyframes caricaturaMotion {
-    from {
-      transform: translateX(100px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0px);
-      opacity: 1;
-    }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
   }
-  
+}
 
 .saludoReveal {
   animation-name: saludoReveal;
@@ -126,7 +168,21 @@ body {
   }
 }
 
+.tecnoReveal {
+  animation-name: tecoReveal;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
 
+@keyframes tecoReveal {
+  from {
+    transform: scale(0.1) translateY(-500px);
+  }
+  to {
+    transform: scale(1) translateY(0px);
+  }
+}
 
 .efectoReveal {
   animation-name: efectoReveal;
@@ -164,9 +220,6 @@ body {
   }
 }
 
-
-
-
 .revealRight {
   animation-name: revealRight;
   animation-duration: 1.5s;
@@ -198,7 +251,6 @@ body {
   from {
     transform: translateX(0px);
     opacity: 1;
-  
   }
   to {
     transform: translateX(100px);
@@ -206,15 +258,9 @@ body {
   }
 }
 
-
-
-
-
-
-
 .menuHamburAnimation {
   animation-name: menuHamburAnimation;
-  animation-duration: 1s;
+  animation-duration: 0.7s;
   animation-timing-function: linear;
   animation-fill-mode: both;
 }
@@ -230,17 +276,17 @@ body {
 
 .menuHamburAnimationOut {
   animation-name: menuHamburAnimationOut;
-  animation-duration: 1s;
+  animation-duration: 0.7s;
   animation-timing-function: linear;
   animation-fill-mode: both;
 }
 
 @keyframes menuHamburAnimationOut {
   from {
-    transform:  translateX(0px);
+    transform: translateX(0px);
   }
   to {
-    transform:  translateX(200%);;
+    transform: translateX(400%);
   }
 }
 
@@ -249,25 +295,46 @@ body {
   opacity: 0;
 }
 
-
-.arrowDownAnimation{
+.arrowDownAnimation {
   animation-name: arrowDownAnimation;
   animation-iteration-count: infinite;
   animation-duration: 2s;
-  animation-timing-function:ease;
+  animation-timing-function: ease;
   animation-fill-mode: both;
   animation-delay: 3.6s;
 }
 
 @keyframes arrowDownAnimation {
   from {
-    transform:  translateY(0px);
-    
+    transform: translateY(0px);
   }
   to {
-    transform:  translateY(4px);;
-    
+    transform: translateY(4px);
   }
 }
 
+.sombraPerfil {
+  filter: drop-shadow(4px 8px 50px var(--primaryColor));
+}
 
+@media screen and (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--primaryColor);
+    border-radius: 5px; /* Radio de borde del dedo de la barra de desplazamiento */
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--bgColor); /* Color de fondo de la pista de la barra de desplazamiento */
+    
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: red;
+    width: 20px;
+    height: 20px;
+  }
+}

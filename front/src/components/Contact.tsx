@@ -1,17 +1,38 @@
-import { SocialMedia } from "../commons/SocialMedia";
+import { SocialMedia } from "../assets/SocialMedia";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaArrowCircleUp } from "react-icons/fa";
+import Footer from "./Footer";
+import ModalMensaje from "../commons/ModalMensaje";
 
 interface ContactProps {
   referencia: React.MutableRefObject<HTMLDivElement | null>;
-  itemsNavbar: { name: string; scroll: React.MutableRefObject<HTMLDivElement | null> }[];
-  scrollHandler: (elemRef: React.MutableRefObject<HTMLDivElement | null>) => void;
+  itemsNavbar: {
+    name: string;
+    scroll: React.MutableRefObject<HTMLDivElement | null>;
+  }[];
+  scrollHandler: (
+    elemRef: React.MutableRefObject<HTMLDivElement | null>
+  ) => void;
 }
+function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
+  const handleModal = (): void => {
+    const modal = document.querySelector(".modalMensaje");
 
-function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
+    modal?.classList.remove("menuHamburAnimationOut");
+    modal?.classList.remove("opacity-0");
+
+    modal?.classList.add("menuHamburAnimation");
+    modal?.classList.add("opacity-100");
+
+    setTimeout(() => {
+      modal?.classList.remove("menuHamburAnimation");
+      modal?.classList.add("menuHamburAnimationOut");
+    }, 2500);
+  };
+
   const singUpForm = useFormik({
     initialValues: {
       name: "",
@@ -44,6 +65,7 @@ function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
         .then((response) => {
           console.log(response.data);
           singUpForm.resetForm();
+          handleModal();
         })
         .catch((error) => {
           console.log(error);
@@ -55,11 +77,13 @@ function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
     <section
       ref={referencia}
       id="contacto"
-      className={`contactoSection w-full h-auto pt-[12vh]`}
+      className={` contactoSection w-full h-auto pt-[12vh] fondo relative overflow-hidden`}
     >
       <h2 className="ml-[5%] text-[1.5rem] font-medium">CONTACTO</h2>
       <div className="w-full h-auto h-min-[90vh]  flex justify-center items-start lg:flex-row xs:flex-col xs:items-center  ">
-        <div className={`socialMedia efectoRevealOut w-1/2 min-h-[40vh] h-[70%]  flex items-center flex-col justify-center xs:w-[90%]`}>
+        <div
+          className={`socialMedia efectoRevealOut w-1/2 min-h-[40vh] h-[70%]  flex items-center flex-col justify-center xs:w-[100%] xs:mt-[5%]`}
+        >
           <div className="w-[80%]">
             <h3 className="text-[1.2rem] font-medium ">Contactemonos:</h3>
             <p className="mt-[2%] text-[1.05rem]">
@@ -72,7 +96,7 @@ function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
           <div className="w-[60%] h-[8vh]  my-[2%] flex justify-center items-cente">
             {SocialMedia.map((media) => {
               return (
-                <div className="aspect-square rounded-full h-[100%] flex justify-center items-center shadow-lg shadow-shodowGrey400 mr-[5%] hover:text-yellow-500">
+                <div className="aspect-square rounded-full h-[100%] flex justify-center items-center shadow-lg shadow-shodowGrey400 mr-[5%] hover:text-primaryColor">
                   <Link
                     to={media.link}
                     target="_blank"
@@ -92,10 +116,10 @@ function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
           </div>
         </div>
 
-        <div className={`formulario efectoRevealOut w-1/2 xs:w-[100%]`} >
+        <div className={`formulario efectoRevealOut w-1/2 xs:w-[100%]`}>
           <form
             onSubmit={singUpForm.handleSubmit}
-            className="flex flex-col items-start w-[80%] rounded-lg mx-auto p-[3%] shadow-lg shadow-shodowGrey400"
+            className="flex flex-col items-start w-[80%] rounded-lg mx-auto p-[3%] shadow-lg shadow-shodowGrey400 text-[1.1rem]"
           >
             <label className="ml-[1%] text-[1.15rem] font-medium">NOMBRE</label>
             <input
@@ -105,7 +129,7 @@ function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
               onChange={singUpForm.handleChange}
               onBlur={singUpForm.handleBlur}
               type="text"
-              className={`w-[100%] h-[6.5vh] border  rounded-lg ${
+              className={`w-[100%] h-[6.5vh] border  rounded-lg text-black  ${
                 singUpForm.errors.name && singUpForm.touched.name
                   ? "mb-[0] border-red-600"
                   : "mb-[2%] border-blue-400"
@@ -124,7 +148,7 @@ function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
               onChange={singUpForm.handleChange}
               onBlur={singUpForm.handleBlur}
               type="text"
-              className={`w-[100%] h-[6.5vh] border  rounded-lg ${
+              className={`w-[100%] h-[6.5vh] border  rounded-lg text-black ${
                 singUpForm.errors.subject && singUpForm.touched.subject
                   ? "mb-[0] border-red-600"
                   : "mb-[2%] border-blue-400"
@@ -143,7 +167,7 @@ function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
               onChange={singUpForm.handleChange}
               onBlur={singUpForm.handleBlur}
               type="email"
-              className={`w-[100%] h-[6.5vh] border  rounded-lg ${
+              className={`w-[100%] h-[6.5vh] border  rounded-lg text-black ${
                 singUpForm.errors.email && singUpForm.touched.email
                   ? "mb-[0] border-red-600"
                   : "mb-[2%] border-blue-400"
@@ -163,7 +187,7 @@ function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
               value={singUpForm.values.message}
               onChange={singUpForm.handleChange}
               onBlur={singUpForm.handleBlur}
-              className={`w-[100%] h-[20vh] border  rounded-lg ${
+              className={`w-[100%] h-[20vh] border  rounded-lg text-black ${
                 singUpForm.errors.message && singUpForm.touched.message
                   ? "mb-[0] border-red-600"
                   : "mb-[2%] border-blue-400"
@@ -176,7 +200,7 @@ function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
             </p>
             <button
               type="submit"
-              className="w-full h-[7vh] mt-[2%] bg-yellow-500 text-black rounded-lg text-[1.2rem] font-medium hover:bg-yellow-600 font-semibold"
+              className="w-full h-[7vh] mt-[2%] bg-primaryColor text-black rounded-lg text-[1.2rem] duration-1000  font-semibold hover:scale-[1.05]"
             >
               ENVIAR MENSAJE
             </button>
@@ -184,10 +208,15 @@ function Contact({ referencia,itemsNavbar,scrollHandler }: ContactProps) {
         </div>
       </div>
       <div className="w-full flex justify-center mb-[2%]">
-      <button onClick={()=>scrollHandler(itemsNavbar[0].scroll)} className=" text-[6vh] rounded-full text-yellow-400 arrowDownAnimation mx-auto">
-    <FaArrowCircleUp/>
-    </button>
-    </div>
+        <button
+          onClick={() => scrollHandler(itemsNavbar[0].scroll)}
+          className="text-[6vh] rounded-full text-primaryColor  arrowDownAnimation hover:shadow-lg hover:shadow-primaryColor"
+        >
+          <FaArrowCircleUp />
+        </button>
+      </div>
+      <ModalMensaje />
+      <Footer />
     </section>
   );
 }

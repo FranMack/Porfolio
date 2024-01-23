@@ -1,5 +1,7 @@
 import TMDB from "./imagenes/TMDB.jpg";
 import Polirubro from "./imagenes/Polirubro.jpg";
+import to_do_list from "./imagenes/To_do_list.jpg";
+
 
 interface ProjectInfo {
   name: string;
@@ -43,12 +45,12 @@ export const projectsInfo: ProjectInfo[] = [
     videoId:"gieEQFIfgYc"
   },
   {
-    name: "TMDB",
-    path: TMDB,
-    info: "Sitio web de series y peliculas",
+    name: "to_do_list",
+    path: to_do_list,
+    info: "App de notas",
     tecnologias: ["React", "Node js", "Sequelize", "Postgress"],
     description:
-      "Sitio Web para ver descripciones de películas y series consumiendo la información de la API de The Movie Database (TMDB).",
+      "En esta app podrás crear listas de tareas, y más.",
     userFunctionality:
       "El usuario puede interactuar con un amplio catálogo de películas y series, filtrarlas por género o buscar una en específico, puede registrarse, agregar o eliminar películas a sus favoritos como también su cuenta creada.",
     backLink: "https://github.com/FranMack/TMDB---api",
