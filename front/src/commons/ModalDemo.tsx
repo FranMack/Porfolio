@@ -5,7 +5,7 @@ import YouTube from "react-youtube";
 interface ModalDemoProps {
   handleModalVideo: () => void;
   modalVideo: boolean;
-  videoId: string;
+  videoId: string | undefined;
 }
 
 function ModalDemo({ handleModalVideo, modalVideo, videoId }: ModalDemoProps) {

@@ -1,12 +1,10 @@
 import { BsXLg } from "react-icons/bs";
+import { Section,Item } from "../App";
 
 interface MenuHamburProps {
-  itemsNavbar: {
-    name: string;
-    scroll: React.MutableRefObject<HTMLDivElement | never[]>;
-  }[];
+  itemsNavbar: Item[] |[];
   scrollHandler: (
-    elemRef: React.MutableRefObject<HTMLDivElement | null>
+    elemRef: React.MutableRefObject<Section | any>
   ) => void;
   handlerMenuOpen: () => void;
 }

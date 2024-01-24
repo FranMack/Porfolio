@@ -1,7 +1,8 @@
 import { tecnologias } from "../assets/logos/logos";
+import { Section } from "../App";
 
 interface TecnoProps {
-  referencia: React.MutableRefObject<HTMLDivElement | null>;
+  referencia: React.MutableRefObject<Section | never[] |any>;
 }
 
 function Tecnologias({ referencia }: TecnoProps) {

@@ -5,21 +5,18 @@ import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Navbar from "../components/Navbar";
 import MenuHamburguesa from "../commons/MenuHamburguesa";
-import {useMenuHamburguer} from "../hooks/useMenuHamburguer"
+import { useMenuHamburguer } from "../hooks/useMenuHamburguer";
+import { Section } from "../App";
+import { Item } from "../App";
 
 interface HomeProps {
-  start: React.MutableRefObject<HTMLDivElement | never[]>;
-  sobreMi: React.MutableRefObject<HTMLDivElement | never[]>;
-  tecnologias: React.MutableRefObject<HTMLDivElement | never[]>;
-  proyectos: React.MutableRefObject<HTMLDivElement | never[]>;
-  contacto: React.MutableRefObject<HTMLDivElement | never[]>;
-  itemsNavbar: {
-    name: string;
-    scroll: React.MutableRefObject<HTMLDivElement | never[]>;
-  }[];
-  scrollHandler: (
-    elemRef: React.MutableRefObject<HTMLDivElement | null>
-  ) => void;
+  start: React.MutableRefObject<Section | never[]>;
+  sobreMi: React.MutableRefObject<Section | never[]>;
+  tecnologias: React.MutableRefObject<Section | never[]>;
+  proyectos: React.MutableRefObject<Section | never[]>;
+  contacto: React.MutableRefObject<Section | never[]>;
+  itemsNavbar: Item[];
+  scrollHandler: (elemRef: React.MutableRefObject<Section | any>) => void;
 }
 
 function Home({
@@ -31,11 +28,8 @@ function Home({
   itemsNavbar,
   scrollHandler,
 }: HomeProps) {
+  const { handlerMenuOpen, menuOpen } = useMenuHamburguer();
 
-  const {handlerMenuOpen,menuOpen}=useMenuHamburguer()
-
-  
- 
   return (
     <>
       <Navbar
@@ -43,28 +37,30 @@ function Home({
         scrollHandler={scrollHandler}
         handlerMenuOpen={handlerMenuOpen}
       />
-      
+
       <MenuHamburguesa
         itemsNavbar={itemsNavbar}
         scrollHandler={scrollHandler}
         handlerMenuOpen={handlerMenuOpen}
       />
-      <main className={`${
-        menuOpen && "opacity-40 brightness-50 pointer-events-none bg-bgColor"
-      }`}>
-      <Start
-        referencia={start}
-        itemsNavbar={itemsNavbar}
-        scrollHandler={scrollHandler}
-      />
-      <AboutMe referencia={sobreMi} />
-      <Tecnologias referencia={tecnologias} />
-      <Projects referencia={proyectos} />
-      <Contact
-        referencia={contacto}
-        itemsNavbar={itemsNavbar}
-        scrollHandler={scrollHandler}
-      />
+      <main
+        className={`${
+          menuOpen && "opacity-40 brightness-50 pointer-events-none bg-bgColor"
+        }`}
+      >
+        <Start
+          referencia={start}
+          itemsNavbar={itemsNavbar}
+          scrollHandler={scrollHandler}
+        />
+        <AboutMe referencia={sobreMi} />
+        <Tecnologias referencia={tecnologias} />
+        <Projects referencia={proyectos} />
+        <Contact
+          referencia={contacto}
+          itemsNavbar={itemsNavbar}
+          scrollHandler={scrollHandler}
+        />
       </main>
     </>
   );

@@ -2,9 +2,11 @@ import React from "react";
 import fotoCV from "../assets/fotoCV.jpeg"
 import cvSpanish from "../assets/cv/Francisco Mackinnon CV.pdf"
 import {FaDownload } from "react-icons/fa";
+import { Section } from "../App";
 
 interface AboutMeProps{
-  referencia: React.MutableRefObject<HTMLDivElement | null >; 
+  referencia: React.MutableRefObject<Section | never[] |any>;
+ 
 }
 
 function AboutMe({referencia}:AboutMeProps) {

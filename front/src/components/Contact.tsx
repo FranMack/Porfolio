@@ -6,15 +6,13 @@ import { Link } from "react-router-dom";
 import { FaArrowCircleUp } from "react-icons/fa";
 import Footer from "./Footer";
 import ModalMensaje from "../commons/ModalMensaje";
+import { Section,Item } from "../App";
 
 interface ContactProps {
-  referencia: React.MutableRefObject<HTMLDivElement | null>;
-  itemsNavbar: {
-    name: string;
-    scroll: React.MutableRefObject<HTMLDivElement | null>;
-  }[];
+  referencia: React.MutableRefObject<Section | null | any>;
+  itemsNavbar: Item[] |[];
   scrollHandler: (
-    elemRef: React.MutableRefObject<HTMLDivElement | null>
+    elemRef: React.MutableRefObject<Section | any>
   ) => void;
 }
 function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
@@ -200,7 +198,7 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
             </p>
             <button
               type="submit"
-              className="w-full h-[7vh] mt-[2%] bg-primaryColor text-black rounded-lg text-[1.2rem] duration-1000  font-semibold hover:scale-[1.05]"
+              className="w-full h-[7vh] mt-[2%] bg-PrimaryColor text-black rounded-lg text-[1.2rem] duration-1000  font-semibold hover:scale-[1.05]"
             >
               ENVIAR MENSAJE
             </button>

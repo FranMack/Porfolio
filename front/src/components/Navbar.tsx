@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
+import {Item} from "../App"
+import { Section } from "../App";
 
 interface NavbarProps {
-  itemsNavbar: {
-    name: string;
-    scroll: React.MutableRefObject<HTMLDivElement | null>;
-  }[];
+ itemsNavbar: Item[] |[];
   scrollHandler: (
-    elemRef: React.MutableRefObject<HTMLDivElement | null>
+    elemRef: React.MutableRefObject<Section | any>
   ) => void;
   handlerMenuOpen: () => void;
 }
@@ -22,7 +21,7 @@ function Navbar({ itemsNavbar, scrollHandler, handlerMenuOpen }: NavbarProps) {
  
 window.addEventListener("scroll",sizeHandler)
 
-//#121212
+
   return (
     <>
      

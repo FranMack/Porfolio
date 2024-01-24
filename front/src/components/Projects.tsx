@@ -1,8 +1,9 @@
 import { projectsInfo } from "../assets/proyectos/InfoProyects";
 import { useNavigate } from "react-router-dom";
+import { Section } from "../App";
 
 interface ProjectsProps {
-  referencia: React.MutableRefObject<HTMLDivElement | null>;
+  referencia: React.MutableRefObject<Section | never[] |any>;
 }
 
 function Projects({ referencia }: ProjectsProps) {
@@ -32,7 +33,7 @@ function Projects({ referencia }: ProjectsProps) {
                   onClick={() => {
                     handleLink(project.name);
                   }}
-                  className="text-[1.1rem] bg-yellow-500 py-[1%] px-[3%] rounded-xl hover:bg-yellow-600 hover:scale-[1.05] "
+                  className="text-[1.1rem] bg-primaryColor py-[1%] px-[3%] rounded-xl  hover:scale-[1.05] "
                 >
                   VER MAS
                 </button>

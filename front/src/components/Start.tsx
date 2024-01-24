@@ -1,14 +1,14 @@
 import caricatura2 from "../assets/caricatura_preview_rev_1.png"
 import { FaArrowCircleDown } from "react-icons/fa";
+import { Section,Item } from "../App";
+
 interface StartProps {
-  referencia: React.MutableRefObject<HTMLDivElement | null>;
-  itemsNavbar: {
-    name: string;
-    scroll: React.MutableRefObject<HTMLDivElement | null>;
-  }[];
+  referencia: React.MutableRefObject<Section | null | any>;
+  itemsNavbar: Item[] |[];
   scrollHandler: (
-    elemRef: React.MutableRefObject<HTMLDivElement | null>
+    elemRef: React.MutableRefObject<Section | any>
   ) => void;
+ 
 }
 
 function Start({ referencia, itemsNavbar, scrollHandler }: StartProps) {

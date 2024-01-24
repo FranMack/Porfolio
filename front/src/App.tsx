@@ -6,12 +6,56 @@ import Home from "./views/Home";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
+export interface Section {
+  seccion: HTMLDivElement | Element | null;
+}
+export interface Item {
+  name: string;
+  scroll: React.MutableRefObject<Section>;
+}
+
+interface AboutMe {
+  parrafos: Element[];
+  imagen: Element | null;
+  seccion: HTMLDivElement | Element | null;
+  boton: Element | null;
+}
+
+interface Tecnologias {
+  cards: Element[];
+  seccion: HTMLDivElement | Element | null;
+}
+
+interface Proyectos {
+  seccion: HTMLDivElement | Element | null;
+}
+
+interface Contacto {
+  seccion: HTMLDivElement | Element | null;
+  socialMedia: Element | null;
+  formulario: Element | null;
+}
+
 function App() {
-  const start = useRef([]);
-  const contacto = useRef([]);
-  const tecnologias = useRef([]);
-  const sobreMi = useRef([]);
-  const proyectos = useRef([]);
+  const start = useRef<Section>({ seccion: document.createElement("div") });
+  const contacto = useRef<Contacto>({
+    seccion: document.createElement("div"),
+    socialMedia: document.createElement("div"),
+    formulario: document.createElement("div"),
+  });
+  const tecnologias = useRef<Tecnologias>({
+    cards: [],
+    seccion: document.createElement("div"),
+  });
+  const sobreMi = useRef<AboutMe>({
+    parrafos: [],
+    imagen: document.createElement("img"),
+    seccion: document.createElement("div") as HTMLDivElement,
+    boton: document.createElement("button"),
+  });
+  const proyectos = useRef<Proyectos>({
+    seccion: document.createElement("div"),
+  });
 
   //start
 
@@ -94,29 +138,32 @@ function App() {
 
     const imagenPerfil = sobreMi.current.imagen;
 
-    const imagenTop = sobreMi.current.imagen.getBoundingClientRect().top;
+    if (imagenPerfil) {
+      const imagenTop = imagenPerfil.getBoundingClientRect().top;
 
-    if (imagenTop < imageTrigger) {
-      imagenPerfil.classList.add("efectoReveal");
-      imagenPerfil.classList.remove("efectoRevealOut");
-    } else if (imagenTop > imageTrigger) {
-      imagenPerfil.classList.add("efectoRevealOut");
-      imagenPerfil.classList.remove("efectoReveal");
+      if (imagenTop < imageTrigger) {
+        imagenPerfil.classList.add("efectoReveal");
+        imagenPerfil.classList.remove("efectoRevealOut");
+      } else if (imagenTop > imageTrigger) {
+        imagenPerfil.classList.add("efectoRevealOut");
+        imagenPerfil.classList.remove("efectoReveal");
+      }
     }
 
     //boton about me
     const boton = sobreMi.current.boton;
 
-    const botonTop = sobreMi.current.boton.getBoundingClientRect().top;
+    if (boton) {
+      const botonTop = boton.getBoundingClientRect().top;
 
-    if (botonTop < triggerButtonCV) {
-      boton.classList.add("efectoReveal");
-      boton.classList.remove("efectoRevealOut");
-    } else if (botonTop > triggerButtonCV) {
-      boton.classList.add("efectoRevealOut");
-      boton.classList.remove("efectoReveal");
+      if (boton && botonTop < triggerButtonCV) {
+        boton.classList.add("efectoReveal");
+        boton.classList.remove("efectoRevealOut");
+      } else if (boton && botonTop > triggerButtonCV) {
+        boton.classList.add("efectoRevealOut");
+        boton.classList.remove("efectoReveal");
+      }
     }
-
     //tecnologias
 
     tecnologias.current.cards.forEach((card) => {
@@ -134,40 +181,41 @@ function App() {
     //contacto
 
     const socialMedia = contacto.current.socialMedia;
+
+    if (socialMedia) {
+      const socialMediaTop = socialMedia.getBoundingClientRect().top;
+
+      if (socialMediaTop < contactTrigger) {
+        socialMedia.classList.add("efectoReveal");
+        socialMedia.classList.remove("efectoRevealOut");
+      }
+      if (socialMediaTop > contactTrigger) {
+        socialMedia.classList.remove("efectoReveal");
+        socialMedia.classList.add("efectoRevealOut");
+      }
+    }
+
     const formulario = contacto.current.formulario;
 
-    const socialMediaTop =
-      contacto.current.socialMedia.getBoundingClientRect().top;
-    const formularioTop =
-      contacto.current.formulario.getBoundingClientRect().top;
+    if (formulario) {
+      const formularioTop = formulario.getBoundingClientRect().top;
 
-    if (socialMediaTop < contactTrigger) {
-      socialMedia.classList.add("efectoReveal");
-      socialMedia.classList.remove("efectoRevealOut");
-    }
-    if (socialMediaTop > contactTrigger) {
-      socialMedia.classList.remove("efectoReveal");
-      socialMedia.classList.add("efectoRevealOut");
-    }
-
-    if (formularioTop < contactTrigger) {
-      formulario.classList.add("efectoReveal");
-      formulario.classList.remove("efectoRevealOut");
-    }
-    if (formularioTop > contactTrigger) {
-      formulario.classList.remove("efectoReveal");
-      formulario.classList.add("efectoRevealOut");
+      if (formularioTop < contactTrigger) {
+        formulario.classList.add("efectoReveal");
+        formulario.classList.remove("efectoRevealOut");
+      }
+      if (formularioTop > contactTrigger) {
+        formulario.classList.remove("efectoReveal");
+        formulario.classList.add("efectoRevealOut");
+      }
     }
   }
 
   const navigate = useNavigate();
 
-  interface item {
-    name: string;
-    scroll: React.MutableRefObject<HTMLDivElement | never[]>;
-  }
+ 
 
-  const itemsNavbar: item[] = [
+  const itemsNavbar: Item[] = [
     { name: "home", scroll: start },
     { name: "sobre mi", scroll: sobreMi },
     { name: "tecnologias", scroll: tecnologias },
@@ -176,7 +224,7 @@ function App() {
   ];
 
   const scrollHandler = (
-    elemRef: React.MutableRefObject<HTMLDivElement | null>
+    elemRef:  React.MutableRefObject<Section | any>
   ) => {
     if (elemRef.current && elemRef.current.seccion) {
       window.scrollTo({
