@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root{
-  --primaryColor:#ff012b;
+  --primaryColor:#eab308;
   --secundaryColor:white;
   --bgColor:#121212;
   --gradient1:rgba(18, 18, 18, 1);
-  --gradient2:rgba(255, 1, 43, 1);
+  --gradient2:rgba(234, 179, 43, 8);
 }
 
 * {

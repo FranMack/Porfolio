@@ -11,6 +11,7 @@ export interface Section {
 }
 export interface Item {
   name: string;
+  nombre:string;
   scroll: React.MutableRefObject<Section>;
 }
 
@@ -216,11 +217,11 @@ function App() {
  
 
   const itemsNavbar: Item[] = [
-    { name: "home", scroll: start },
-    { name: "sobre mi", scroll: sobreMi },
-    { name: "tecnologias", scroll: tecnologias },
-    { name: "proyectos", scroll: proyectos },
-    { name: "contacto", scroll: contacto },
+    { name: "home",nombre:"inicio", scroll: start },
+    { name: "about me",nombre:"sobre mi", scroll: sobreMi },
+    { name: "technologies",nombre:"tecnologias", scroll: tecnologias },
+    { name: "projects",nombre:"proyectos", scroll: proyectos },
+    { name: "contact",nombre:"contacto", scroll: contacto },
   ];
 
   const scrollHandler = (

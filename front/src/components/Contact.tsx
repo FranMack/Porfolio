@@ -6,16 +6,18 @@ import { Link } from "react-router-dom";
 import { FaArrowCircleUp } from "react-icons/fa";
 import Footer from "./Footer";
 import ModalMensaje from "../commons/ModalMensaje";
-import { Section,Item } from "../App";
+import { Section, Item } from "../App";
+import { useContext } from "react";
+import { LanguageContext } from "../context/LanguageContext";
 
 interface ContactProps {
   referencia: React.MutableRefObject<Section | null | any>;
-  itemsNavbar: Item[] |[];
-  scrollHandler: (
-    elemRef: React.MutableRefObject<Section | any>
-  ) => void;
+  itemsNavbar: Item[] | [];
+  scrollHandler: (elemRef: React.MutableRefObject<Section | any>) => void;
 }
 function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
+  const { chosenLanguage } = useContext(LanguageContext);
+
   const handleModal = (): void => {
     const modal = document.querySelector(".modalMensaje");
 
@@ -77,18 +79,21 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
       id="contacto"
       className={` contactoSection w-full h-auto pt-[12vh] fondo relative overflow-hidden`}
     >
-      <h2 className="ml-[5%] text-[1.5rem] font-medium">CONTACTO</h2>
+      <h2 className="ml-[5%] text-[1.5rem] font-medium">{`${
+        chosenLanguage === "english" ? "CONTACT" : "CONTACTO"
+      }`}</h2>
       <div className="w-full h-auto h-min-[90vh]  flex justify-center items-start lg:flex-row xs:flex-col xs:items-center  ">
         <div
           className={`socialMedia efectoRevealOut w-1/2 min-h-[40vh] h-[70%]  flex items-center flex-col justify-center xs:w-[100%] xs:mt-[5%]`}
         >
           <div className="w-[80%]">
-            <h3 className="text-[1.2rem] font-medium ">Contactemonos:</h3>
+            <h3 className="text-[1.2rem] font-medium ">{`${chosenLanguage==="english" ? "Let's get in touch:":"Contactemonos:"}`}</h3>
             <p className="mt-[2%] text-[1.05rem]">
-              Actualmente estoy buscando nuevas oportunidades, mi bandeja de
-              entrada está siempre abierta. Si tienes alguna pregunta o
-              simplemente quieres saludar, ¡haré todo lo posible para
-              responderte!
+              {`${
+                chosenLanguage === "english"
+                  ? "I am currently looking for new opportunities. If you have any questions or just want to get in touch, don't hesitate to contact me."
+                  : "Actualmente me encuentro en búsqueda de nuevas oportunidades Si tienes alguna pregunta o simplemente quieres ponerte en contacto, no dudes en contactarme."
+              }`}
             </p>
           </div>
           <div className="w-[60%] h-[8vh]  my-[2%] flex justify-center items-cente">
@@ -119,7 +124,9 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
             onSubmit={singUpForm.handleSubmit}
             className="flex flex-col items-start w-[80%] rounded-lg mx-auto p-[3%] shadow-lg shadow-shodowGrey400 text-[1.1rem]"
           >
-            <label className="ml-[1%] text-[1.15rem] font-medium">NOMBRE</label>
+            <label className="ml-[1%] text-[1.15rem] font-medium">{`${
+              chosenLanguage === "english" ? "NAME" : "NOMBRE"
+            }`}</label>
             <input
               id="name"
               name="name"
@@ -138,7 +145,9 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
                 singUpForm.touched.name &&
                 singUpForm.errors.name}
             </p>
-            <label className="ml-[1%] text-[1.15rem] font-medium">ASUNTO</label>
+            <label className="ml-[1%] text-[1.15rem] font-medium">{`${
+              chosenLanguage === "english" ? "SUBJECT" : "ASUNTO"
+            }`}</label>
             <input
               id="subject"
               name="subject"
@@ -177,7 +186,7 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
                 singUpForm.errors.email}
             </p>
             <label className="ml-[1%] text-[1.15rem] font-medium">
-              MENSAJE
+              {`${chosenLanguage === "english" ? "MESSAGE" : "MENSAJE"}`}
             </label>
             <textarea
               id="message"
@@ -198,9 +207,11 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
             </p>
             <button
               type="submit"
-              className="w-full h-[7vh] mt-[2%] bg-PrimaryColor text-black rounded-lg text-[1.2rem] duration-1000  font-semibold hover:scale-[1.05]"
+              className="w-full h-[7vh] mt-[2%] bg-primaryColor text-black rounded-lg text-[1.2rem] duration-1000  font-semibold hover:scale-[1.05]"
             >
-              ENVIAR MENSAJE
+              {`${
+                chosenLanguage === "english" ? "SEND MESSAGE" : "ENVIAR MENSAJE"
+              }`}
             </button>
           </form>
         </div>
