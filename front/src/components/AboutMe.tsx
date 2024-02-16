@@ -1,5 +1,5 @@
 import React from "react";
-import fotoCV from "../assets/fotoCV.jpeg"
+import aboutMePicture from"../assets/profilePicture.jpg"
 import cvSpanish from "../assets/cv/Francisco Mackinnon CV.pdf"
 import {FaDownload } from "react-icons/fa";
 import { Section } from "../App";
@@ -16,15 +16,15 @@ function AboutMe({referencia}:AboutMeProps) {
   return (
     <section ref={referencia} className={`sectionAboutMe w-full  h-auto pt-[12vh] overflow-hidden `}>
       <h2 className="ml-[5%] text-[1.5rem] font-medium">{`${chosenLanguage==="english" ? "ABOUT ME":"SOBRE MI"}`}</h2>
-      <div className="w-full h-auto  mx-auto flex justify-center items-center xs:flex-col lg:flex-row mt-[2%] lg:items-start">
+      <div className="w-full h-auto  mx-auto flex justify-center items-center xs:flex-col lg:flex-row mt-[2%] lg:items-center ">
       <div className={ `h-[100%] mx-[5%] flex flex-col items-center justify-center sm:w-[85%] lg:w-[50%]`}>
-        <p  className="efectoRevealOut parrafo xs:text-[1.1rem] lg:text-[1.2rem]  mb-[2%]">
+        <p  className="efectoRevealOut parrafo xs:text-[1.1rem] lg:text-[1.2rem]  mb-[2%] text-center">
         {`${chosenLanguage==="english" ? infoAboutMe.p1English :infoAboutMe.p1Spanish}`}
           </p>
-          <p  className="efectoRevealOut parrafo xs:text-[1.1rem] lg:text-[1.2rem]  mb-[2%]">
+          <p  className="efectoRevealOut parrafo xs:text-[1.1rem] lg:text-[1.2rem]  mb-[2%] text-center">
           {`${chosenLanguage==="english" ? infoAboutMe.p2English :infoAboutMe.p2Spanish}`}
           </p> 
-          <p className="efectoRevealOut parrafo xs:text-[1.1rem] lg:text-[1.2rem]  mb-[2%]">
+          <p className="efectoRevealOut parrafo xs:text-[1.1rem] lg:text-[1.2rem]  mb-[2%] text-center">
           {`${chosenLanguage==="english" ? infoAboutMe.p3English :infoAboutMe.p3Spanish}`}
         </p>
         <div className="botonCV h-fit w-full flex justify-evenly efectoRevealOut my-[1%]">
@@ -35,9 +35,9 @@ function AboutMe({referencia}:AboutMeProps) {
         </div>
        
       </div>
-      <div className="  sm:w-[85%] lg:w-[50%] h-full">
-        <picture className=" w-[100%] overflow-hidden flex justify-center items-center">
-            <img className= {`imagenAboutMe efectoRevealOut w-[60%] aspect-square object-cover duration-1000`} src={fotoCV} alt="" />
+      <div className="  sm:w-[85%] lg:w-[50%] h-ful">
+        <picture className=" w-[100%] overflow-hidden flex justify-center items-center  ">
+            <img className= {`imagenAboutMe efectoRevealOut w-[80%]  object-cover duration-1000 rounded-lg shadow-lg shadow-primaryColor mb-[2%] `} src={aboutMePicture} alt="" />
 
         </picture>
 

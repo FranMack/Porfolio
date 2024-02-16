@@ -73,11 +73,11 @@ function ProjectInfo() {
           <h2 className="xs:text-[3rem] lg:text-[3.5rem] font-bold ml-[7%] mb-[1%] absolute  z-10">
             {`Proyecto: ${projectInfo.name}`}
           </h2>
-          <img
+         {(projectInfo.name !== "My Profile") && <img
             className="h-[100%] w-[100%] object-cover opacity-40 object-top "
-            src={projectInfo.path}
+            src={projectInfo.bannerPath || projectInfo.path}
             alt={projectInfo.name}
-          />
+          />}
         </figure>
         {modalVideo && videoOption === "user" ? (
           <ModalDemo
@@ -126,15 +126,15 @@ function ProjectInfo() {
                           : projectInfo.userFunctionalitySpanish
                       }`}
                     </p>
-                    <button
+                    {projectInfo.videoIdUser && <button
                       onClick={() => {
                         setVideoOption("user");
                         handleModalVideo();
                       }}
-                      className=" text-primaryColor border-primaryColor border-[2px] font-semibold px-[3%] py-[1%] my-[1%] rounded-md text-[1.1rem] w-[13%] hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
+                      className=" text-primaryColor border-primaryColor border-[2px] font-semibold px-[3%] py-[1%] my-[1%] rounded-md text-[1.1rem]  xs:w-[25%] lg:w-[13%] hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
                     >
                       Demo
-                    </button>
+                    </button>}
                   </div>
                 </>
               )}
@@ -152,15 +152,16 @@ function ProjectInfo() {
                         : projectInfo.adminFunctionalitySpanish
                     }`}
                   </p>
+                  {projectInfo.videoIdAdmin &&
                   <button
                     onClick={() => {
                       setVideoOption("admin");
                       handleModalVideo();
                     }}
-                    className=" text-primaryColor border-primaryColor border-[2px] font-semibold px-[3%] py-[1%] my-[1%] rounded-md text-[1.1rem] w-[13%] hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
+                    className=" text-primaryColor border-primaryColor border-[2px] font-semibold px-[3%] py-[1%] my-[1%] rounded-md text-[1.1rem] xs:w-[25%] lg:w-[13%] hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
                   >
                     Demo
-                  </button>
+                  </button>}
                 </>
               )}
               <h3 className="text-[1.5rem] font-semibold mt-[1%] mb-[2%] ">
@@ -172,7 +173,7 @@ function ProjectInfo() {
                 {projectInfo.backLink && (
                   <button
                     onClick={handleLinkBack}
-                    className="  text-primaryColor border-primaryColor border-[2px]  font-semibold px-[10%] py-[3%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
+                    className="  text-primaryColor border-primaryColor border-[2px]  font-semibold xs:px-[5%] xs:py-[2%] lg:px-[10%] lg:py-[3%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
                   >
                     Backend
                   </button>
@@ -180,7 +181,7 @@ function ProjectInfo() {
 
                 <button
                   onClick={handleLinkFront}
-                  className="  text-primaryColor border-primaryColor border-[2px]  font-semibold px-[10%] py-[3%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
+                  className="  text-primaryColor border-primaryColor border-[2px]  font-semibold xs:px-[5%] xs:py-[2%] lg:px-[10%] lg:py-[3%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
                 >
                   Frontend
                 </button>
