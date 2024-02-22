@@ -26,6 +26,7 @@ interface ProjectInfo {
   bannerPath?: string;
   backLink?: string;
   frontLink?: string;
+  frontLink2?:string
 }
 
 export const infoAboutMe = {
@@ -73,8 +74,8 @@ export const projectsInfo: ProjectInfo[] = [
       "El administrador tiene la potestad de agregar productos nuevos, editarlos y elimimarlos.",
     adminFunctionalityEnglish:
       "The administrator has the power to add new products, edit them and delete them.",
-    backLink: "https://github.com/FranMack/TMDB---api",
-    frontLink: "https://github.com/FranMack/polirubroProps-api",
+    backLink: "https://github.com/FranMack/polirubroProps-api",
+    frontLink: "https://github.com/FranMack/polirubroProps-front",
   },
 
   {
@@ -153,8 +154,9 @@ export const projectsInfo: ProjectInfo[] = [
       "El administrador tendrá acceso a la lista de repartidores registrados, podrá verificar el estado de actividad de aquellos que estén realizando entregas en ese momento, así como también visualizar la cantidad de paquetes asignados a cada repartidor. Además, podrá crear, visualizar y editar los detalles de los paquetes que deben ser enviados.",
     adminFunctionalityEnglish:
       "The administrator will have access to the list of registered deliverers, will be able to verify the activity status of those who are making deliveries at that moment, as well as view the number of packages assigned to each deliverer. Additionally, you will be able to create, view and edit the details of the packages that must be sent.",
-    backLink: "https://github.com/FranMack/TMDB---api",
-    frontLink: "https://github.com/FranMack/TMDB---front",
+    backLink: "https://github.com/FranMack/fastDelivery-api",
+    frontLink: "https://github.com/FranMack/fastDelivery-backoffice",
+    frontLink2:"https://github.com/FranMack/fastDelivery-delivery",
     videoIdUser: "pxm56tJkOnw",
     videoIdAdmin: "ukdIW-132MQ",
   },

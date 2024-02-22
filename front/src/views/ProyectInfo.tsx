@@ -24,6 +24,12 @@ function ProjectInfo() {
       newTab.focus();
     }
   };
+  const handleLinkFront2 = (): void => {
+    const newTab = window.open(`${projectInfo.frontLink2}`, "_blank");
+    if (newTab) {
+      newTab.focus();
+    }
+  };
 
   const handleLinkBack = (): void => {
     const newTab = window.open(`${projectInfo.frontLink}`, "_blank");
@@ -169,11 +175,11 @@ function ProjectInfo() {
                   chosenLanguage === "english" ? "REPOSITORIES" : "REPOSITORIOS"
                 }`}
               </h3>
-              <div className=" flex justify-between   text-[1.15rem] xs:w-[60%] sm:w-[40%] lg:w-[50%] ">
+              <div className=" flex justify-evenly   text-[1.15rem] xs:w-[100%] sm:w-[80%] lg:w-[80%] ">
                 {projectInfo.backLink && (
                   <button
                     onClick={handleLinkBack}
-                    className="  text-primaryColor border-primaryColor border-[2px]  font-semibold xs:px-[5%] xs:py-[2%] lg:px-[10%] lg:py-[3%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
+                    className="  text-primaryColor border-primaryColor border-[2px]  font-semibold xs:px-[3%] xs:py-[1%] lg:px-[5%] lg:py-[2%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
                   >
                     Backend
                   </button>
@@ -181,10 +187,18 @@ function ProjectInfo() {
 
                 <button
                   onClick={handleLinkFront}
-                  className="  text-primaryColor border-primaryColor border-[2px]  font-semibold xs:px-[5%] xs:py-[2%] lg:px-[10%] lg:py-[3%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
+                  className="  text-primaryColor border-primaryColor border-[2px]  font-semibold xs:px-[3%] xs:py-[1%]  lg:px-[5%] lg:py-[2%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
                 >
                   Frontend
                 </button>
+                {projectInfo.frontLink2 && (
+                  <button
+                    onClick={handleLinkFront2}
+                    className="  text-primaryColor border-primaryColor border-[2px]  font-semibold xs:px-[3%] xs:py-[1%]  lg:px-[5%] lg:py-[2%]] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
+                  >
+                    Frontend II
+                  </button>
+                )}
               </div>
             </article>
 
