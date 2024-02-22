@@ -28,9 +28,9 @@ function AboutMe({referencia}:AboutMeProps) {
           {`${chosenLanguage==="english" ? infoAboutMe.p3English :infoAboutMe.p3Spanish}`}
         </p>
         <div className="botonCV h-fit w-full flex justify-evenly efectoRevealOut my-[1%]">
-        <a href={cvSpanish} download="CV Francisco Mackinnon" className="  text-[1.1rem]  text-primaryColor border-primaryColor border-[2px]  font-semibold  p-[2%] rounded-lg flex justify-evenly  xs:w-[35%] sm:w-[30%] lg:w-[30%] xs:mb-[10%] lg:mb-0 hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor ">
+        <a href={cvSpanish} download="CV Francisco Mackinnon" className="  text-[1.1rem]  text-primaryColor border-primaryColor border-[2px]  font-semibold  p-[2%] rounded-lg flex justify-evenly  xs:w-[40%] sm:w-[30%] lg:w-[30%] xs:mb-[10%] lg:mb-0 hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor ">
           <FaDownload/> <p className="ml-[5%] ">{`CV (esp)`}</p></a>
-          <a href={cvSpanish} download="CV Francisco Mackinnon" className=" text-[1.1rem]  text-primaryColor border-primaryColor border-[2px]  font-semibold  p-[2%] rounded-lg flex justify-evenly  xs:w-[35%] sm:w-[30%] lg:w-[30%]  xs:mb-[10%] lg:mb-0 hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor ">
+          <a href={cvSpanish} download="CV Francisco Mackinnon" className=" text-[1.1rem]  text-primaryColor border-primaryColor border-[2px]  font-semibold  p-[2%] rounded-lg flex justify-evenly  xs:w-[40%] sm:w-[30%] lg:w-[30%]  xs:mb-[10%] lg:mb-0 hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor ">
           <FaDownload/> <p className="ml-[5%] ">{`CV (eng)`}</p></a>
         </div>
        
