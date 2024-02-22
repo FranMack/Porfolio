@@ -29,15 +29,15 @@ function Navbar({ itemsNavbar, scrollHandler, handlerMenuOpen }: NavbarProps) {
       <nav
         className={`${
           scrollPosition > 0 && "shadow-sm shadow-primaryColor bg-bgColor"
-        } w-full h-[12vh]  items-center justify-between fixed  z-40  hidden lg:flex`}
+        } w-full h-[12vh]  items-center justify-between fixed  z-40  hidden md:flex`}
       >
-        <h1
+        <h2
           onClick={() => scrollHandler(itemsNavbar[0].scroll)}
           className="ml-[2%] text-[2rem] hover:text-primaryColor"
         >
           FJM
-        </h1>
-        <ul className="flex justify-around w-[45%] h-[50%] items-center mr-[2%]">
+        </h2>
+        <ul className="flex justify-around  md:w-[75%] lg:w-[60%] xl:w-[45%] h-[50%] items-center mr-[2%]">
           {itemsNavbar.map((item, i) => (
             <li
               key={i}
@@ -51,18 +51,20 @@ function Navbar({ itemsNavbar, scrollHandler, handlerMenuOpen }: NavbarProps) {
           ))}
           <li className="flex h-full aspect-[2/1] justify-between items-center">
             <div
-            title="Español"
+              title="Español"
               onClick={togleLanguage}
               className={`${
-                chosenLanguage !== "english" ? "opacity-100":"opacity-40"
+                chosenLanguage !== "english" ? "opacity-100" : "opacity-40"
               } h-[35%] aspect-[2/1] `}
             >
               <SpainFlag />
             </div>
             <div
-            title="English"
+              title="English"
               onClick={togleLanguage}
-              className={`${chosenLanguage === "english" ? "opacity-100":"opacity-40"} h-[35%] aspect-[2/1]`}
+              className={`${
+                chosenLanguage === "english" ? "opacity-100" : "opacity-40"
+              } h-[35%] aspect-[2/1]`}
             >
               <UKflag />
             </div>
@@ -73,7 +75,7 @@ function Navbar({ itemsNavbar, scrollHandler, handlerMenuOpen }: NavbarProps) {
       <nav
         className={`${
           scrollPosition > 0 && "shadow-sm shadow-primaryColor bg-bgColor"
-        } w-full h-[12vh] flex lg:hidden items-center justify-between fixed shadow-lg shadow-shodowGrey400  z-40`}
+        } w-full h-[12vh] flex md:hidden items-center justify-between fixed shadow-lg shadow-shodowGrey400  z-40`}
       >
         <h3
           onClick={() => scrollHandler(itemsNavbar[0].scroll)}

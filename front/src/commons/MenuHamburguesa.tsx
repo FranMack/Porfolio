@@ -24,7 +24,7 @@ function MenuHamburguesa({
   return (
     <aside
       id="menuHamburguesa"
-      className="menuHamburAnimationInit  w-[60vw] h-[100vh] fixed z-50 flex flex-col justify-start right-0 bg-bgColor transform"
+      className="menuHamburAnimationInit  w-[50vw] h-[100vh] fixed z-50 flex flex-col justify-start right-0 bg-bgColor transform"
     >
       <div className="w-full flex justify-start mt-[2%]  ">
         <BsXLg
@@ -41,7 +41,7 @@ function MenuHamburguesa({
               scrollHandler(item.scroll);
               handlerMenuOpen();
             }}
-            className=" hover:text-primaryColor text-[3vh]"
+            className=" hover:text-primaryColor text-[1.1rem]"
           >
             {chosenLanguage==="english" ? item.name.toUpperCase():item.nombre.toUpperCase()}
           </li>

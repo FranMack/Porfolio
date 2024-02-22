@@ -169,7 +169,7 @@ function ProjectInfo() {
                   chosenLanguage === "english" ? "REPOSITORIES" : "REPOSITORIOS"
                 }`}
               </h3>
-              <div className=" flex justify-between   text-[1.15rem] xs:w-[90%] lg:w-[40%] ">
+              <div className=" flex justify-between   text-[1.15rem] xs:w-[60%] sm:w-[40%] lg:w-[50%] ">
                 {projectInfo.backLink && (
                   <button
                     onClick={handleLinkBack}

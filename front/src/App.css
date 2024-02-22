@@ -66,7 +66,6 @@ body {
     backgroundEfect 20s 3s infinite linear;
   overflow: hidden;
   animation-fill-mode: both;
-  font-size: 6vh;
   color: transparent;
   background-color: var(--primaryColor);
   -webkit-text-stroke: 1px var(--primaryColor);

@@ -182,7 +182,7 @@ export const projectsInfo: ProjectInfo[] = [
     path: brokenOffice,
     bannerPath: horizontalGlobant,
     infoSpanish: "App de reporte de fallas",
-    infoEnglish: "App de reporte de fallas",
+    infoEnglish: "Failure reporting app",
     tecnologias: [
       "Javascript",
       "React",
