@@ -18,7 +18,7 @@ function Tecnologias({ referencia }: TecnoProps) {
         {tecnologias.map((tec) => {
           return (
             <div
-              className={`tecnoCard efectoRevealOut w-[80%] aspect-[2.2/1] text-secundaryColor  flex justify-center items-center rounded-xl shadow-sm shadow-primaryColor  duration-1000 hover:shadow-lg hover:shadow-primaryColor`}
+              className={`tecnoCard efectoRevealOut xs:w-[90%] sm:w-[80%] aspect-[2.2/1] text-secundaryColor  flex xs:flex-col sm:flex-row justify-center items-center rounded-xl shadow-sm shadow-primaryColor  duration-1000 hover:shadow-lg hover:shadow-primaryColor`}
             >
               {tec.svg}
               <p className="text-[1.3rem] font-semibold ">{tec.name}</p>
