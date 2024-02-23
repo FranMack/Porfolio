@@ -35,7 +35,7 @@ export const infoAboutMe = {
   p1English:
     "I am a full stack developer with solid skills in solving problem , teamwork,planning and meeting objectives, a product of my years of experience as a civil engineer in the construction industry.",
   p2Spanish:
-    " Mi camino deprogramador comienza de manera autodidacta, para luego, con el fin de acelerar mi curva de aprendizaje iniciar un coding bootcamp enfocado en el stack de tecnologías PEARN.",
+    " Mi camino de programador comienza de manera autodidacta, para luego, con el fin de acelerar mi curva de aprendizaje iniciar un coding bootcamp enfocado en el stack de tecnologías PEARN.",
   p2English:
     "My journey as a programmer begins as a self-taught person, and then, in order to accelerate my learning curve I start a coding bootcamp focused on the PEARN technology stack. ",
   p3Spanish:
@@ -191,7 +191,7 @@ export const projectsInfo: ProjectInfo[] = [
       "Material UI",
       "Node js",
       "Express",
-      "Postgress",
+      "Postgres",
       "Sequelize",
       "JWT",
       "Redux",

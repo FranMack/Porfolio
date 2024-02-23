@@ -92,7 +92,7 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
               {`${
                 chosenLanguage === "english"
                   ? "I am currently looking for new opportunities. If you have any questions or just want to get in touch, don't hesitate to contact me."
-                  : "Actualmente me encuentro en búsqueda de nuevas oportunidades Si tienes alguna pregunta o simplemente quieres ponerte en contacto, no dudes en contactarme."
+                  : "Actualmente me encuentro en búsqueda de nuevas oportunidades Si tienes alguna pregunta o simplemente quieres ponerte en contacto, no dudes en escribirme."
               }`}
             </p>
           </div>
@@ -136,11 +136,11 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
               type="text"
               className={`w-[100%] h-[6.5vh] border  rounded-lg text-black  ${
                 singUpForm.errors.name && singUpForm.touched.name
-                  ? "mb-[0] border-red-600"
+                  ? "mb-[0] border-primaryColor border-[4px]"
                   : "mb-[2%] border-blue-400"
               } `}
             />
-            <p className="text-[red] text-[0.9rem]">
+            <p className=" text-primaryColor text-[0.9rem]">
               {singUpForm.errors.name &&
                 singUpForm.touched.name &&
                 singUpForm.errors.name}
@@ -157,11 +157,11 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
               type="text"
               className={`w-[100%] h-[6.5vh] border  rounded-lg text-black ${
                 singUpForm.errors.subject && singUpForm.touched.subject
-                  ? "mb-[0] border-red-600"
+                  ? "mb-[0] border-primaryColor border-[4px]"
                   : "mb-[2%] border-blue-400"
               } `}
             />
-            <p className="text-[red] text-[0.9rem]">
+            <p className="text-primaryColor text-[0.9rem]">
               {singUpForm.errors.subject &&
                 singUpForm.touched.subject &&
                 singUpForm.errors.subject}
@@ -176,11 +176,11 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
               type="email"
               className={`w-[100%] h-[6.5vh] border  rounded-lg text-black ${
                 singUpForm.errors.email && singUpForm.touched.email
-                  ? "mb-[0] border-red-600"
+                  ? "mb-[0] border-primaryColor border-[4px]"
                   : "mb-[2%] border-blue-400"
               } `}
             />
-            <p className="text-[red] text-[0.9rem]">
+            <p className="text-primaryColor text-[0.9rem]">
               {singUpForm.errors.email &&
                 singUpForm.touched.email &&
                 singUpForm.errors.email}
@@ -196,11 +196,11 @@ function Contact({ referencia, itemsNavbar, scrollHandler }: ContactProps) {
               onBlur={singUpForm.handleBlur}
               className={`w-[100%] h-[20vh] border  rounded-lg text-black ${
                 singUpForm.errors.message && singUpForm.touched.message
-                  ? "mb-[0] border-red-600"
+                  ? "mb-[0] border-primaryColor border-[4px]"
                   : "mb-[2%] border-blue-400"
               } `}
             />
-            <p className="text-[red] text-[0.9rem]">
+            <p className="text-primaryColor text-[0.9rem]">
               {singUpForm.errors.message &&
                 singUpForm.touched.message &&
                 singUpForm.errors.message}

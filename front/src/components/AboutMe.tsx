@@ -1,6 +1,7 @@
 import React from "react";
 import aboutMePicture from"../assets/profilePicture.jpg"
 import cvSpanish from "../assets/cv/Francisco Mackinnon CV.pdf"
+import cvEnglish from "../assets/cv/Francisco Mackinnon (resume).pdf"
 import {FaDownload } from "react-icons/fa";
 import { Section } from "../App";
 import { useContext } from "react";
@@ -30,7 +31,7 @@ function AboutMe({referencia}:AboutMeProps) {
         <div className="botonCV h-fit w-full flex justify-evenly efectoRevealOut my-[1%]">
         <a href={cvSpanish} download="CV Francisco Mackinnon" className="  text-[1.1rem]  text-primaryColor border-primaryColor border-[2px]  font-semibold  p-[2%] rounded-lg flex justify-evenly  xs:w-[40%] sm:w-[30%] lg:w-[30%] xs:mb-[10%] lg:mb-0 hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor ">
           <FaDownload/> <p className="ml-[5%] ">{`CV (esp)`}</p></a>
-          <a href={cvSpanish} download="CV Francisco Mackinnon" className=" text-[1.1rem]  text-primaryColor border-primaryColor border-[2px]  font-semibold  p-[2%] rounded-lg flex justify-evenly  xs:w-[40%] sm:w-[30%] lg:w-[30%]  xs:mb-[10%] lg:mb-0 hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor ">
+          <a href={cvEnglish} download="Resume Francisco Mackinnon" className=" text-[1.1rem]  text-primaryColor border-primaryColor border-[2px]  font-semibold  p-[2%] rounded-lg flex justify-evenly  xs:w-[40%] sm:w-[30%] lg:w-[30%]  xs:mb-[10%] lg:mb-0 hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor ">
           <FaDownload/> <p className="ml-[5%] ">{`CV (eng)`}</p></a>
         </div>
        
