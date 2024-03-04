@@ -1,7 +1,7 @@
 import React from "react";
 import aboutMePicture from"../assets/profilePicture.jpg"
 import cvSpanish from "../assets/cv/Francisco Mackinnon CV.pdf"
-import cvEnglish from "../assets/cv/Francisco Mackinnon (resume).pdf"
+import cvEnglish from "../assets/cv/Francisco Mackinnon Resume.pdf"
 import {FaDownload } from "react-icons/fa";
 import { Section } from "../App";
 import { useContext } from "react";
