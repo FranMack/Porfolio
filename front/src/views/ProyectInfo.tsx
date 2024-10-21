@@ -38,6 +38,13 @@ function ProjectInfo() {
     }
   };
 
+  const handleAppDomain = (): void => {
+    const newTab = window.open(`${projectInfo.appDomain}`, "_blank");
+    if (newTab) {
+      newTab.focus();
+    }
+  };
+
   const [modalVideo, setModalVideo] = useState<boolean>(false);
   const [videoOption, setVideoOption] = useState("user");
 
@@ -172,7 +179,7 @@ function ProjectInfo() {
               )}
               <h3 className="text-[1.5rem] font-semibold mt-[1%] mb-[2%] ">
                 {`${
-                  chosenLanguage === "english" ? "REPOSITORIES" : "REPOSITORIOS"
+                  chosenLanguage === "english" ? "REPOSITORIES / DEPLOY" : "REPOSITORIOS / DEPLOY"
                 }`}
               </h3>
               <div className=" flex justify-between   text-[1.15rem] xs:w-[100%] sm:w-[80%] lg:w-[50%] ">
@@ -185,12 +192,12 @@ function ProjectInfo() {
                   </button>
                 )}
 
-                <button
+               {projectInfo.frontLink && <button
                   onClick={handleLinkFront}
                   className="  text-primaryColor border-primaryColor border-[2px]  font-semibold xs:px-[3%] xs:py-[1%]  lg:px-[5%] lg:py-[2%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
                 >
                   Frontend
-                </button>
+                </button>}
                 {projectInfo.frontLink2 && (
                   <button
                     onClick={handleLinkFront2}
@@ -200,6 +207,13 @@ function ProjectInfo() {
                   </button>
                 )}
               </div>
+
+              {!projectInfo.frontLink && !projectInfo.frontLink2  && !projectInfo.backLink  && <button
+                  onClick={handleAppDomain}
+                  className="  text-primaryColor border-primaryColor border-[2px]  font-semibold xs:px-[3%] xs:py-[1%]  lg:px-[5%] lg:py-[2%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
+                >
+                  Visitar el sitio
+                </button>}
             </article>
 
             <aside className=" lg:text-start shadow-lg mb-[2%] my-[1%] rounded-lg h-fit py-[1%] flex flex-col  xs:items-start lg:items-center  xs:w-[90%] lg:w-[25%] lg:shadow-primaryColor  ">

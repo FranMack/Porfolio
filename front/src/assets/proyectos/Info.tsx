@@ -1,13 +1,15 @@
-import TMDB from "./imagenes/TMDB.jpg";
-import Polirubro from "./imagenes/Polirubro.jpg";
-import to_do_list from "./imagenes/To_do_list.jpg";
-import fastDelivery from "./imagenes/fastDelivery.jpg";
-import brokenOffice from "./imagenes/brokenOffice.jpg";
-import myProfile from "./imagenes/myProfile.png";
-import horizontalTodo from "./imagenes/toDoListHorizontal.png";
-import horizontalGlobant from "./imagenes/globantHorizontal.png";
-import horizontalFastDelivery from "./imagenes/fastDeliveryHorizontall.png";
-import horizontalMyProfilefrom from "./imagenes/myProfileHorizontal.png";
+import TMDB from "./imagenes/TMDB.webp";
+import Polirubro from "./imagenes/Polirubro.webp";
+import to_do_list from "./imagenes/To_do_list.webp";
+import fastDelivery from "./imagenes/fastDelivery.webp";
+import brokenOffice from "./imagenes/brokenOffice.webp";
+import myProfile from "./imagenes/myProfile.webp";
+import horizontalTodo from "./imagenes/toDoListHorizontal.webp";
+import horizontalGlobant from "./imagenes/globantHorizontal.webp";
+import horizontalFastDelivery from "./imagenes/fastDeliveryHorizontall.webp";
+import horizontalMyProfilefrom from "./imagenes/myProfileHorizontal.webp";
+import nutriendoLaVida from "./imagenes/nutriendoLaVida.webp";
+import zmDevs from "./imagenes/zmLanding.webp"
 
 interface ProjectInfo {
   name: string;
@@ -26,7 +28,8 @@ interface ProjectInfo {
   bannerPath?: string;
   backLink?: string;
   frontLink?: string;
-  frontLink2?:string
+  frontLink2?: string;
+  appDomain?:string
 }
 
 export const infoAboutMe = {
@@ -45,6 +48,60 @@ export const infoAboutMe = {
 };
 
 export const projectsInfo: ProjectInfo[] = [
+  {
+    name: "Nutriendo la Vida",
+    path: nutriendoLaVida,
+    infoSpanish: "Plataforma para venta de planes nutricionales.",
+    infoEnglish: "Platform for selling nutritional plans.",
+    tecnologias: [
+      "Javascript",
+      "React",
+      "Sass",
+      "Node js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "JWT",
+      "Github",
+    ],
+    descriptionSpanish:
+      "Aplicación desarrollada para venta de planes nutricionales. Utiliza como pasarela de pago Mercado pago.",
+    descriptionEnglish:
+      "Application developed for the sale of nutritional plans. Use Mercado Pago as a payment gateway.",
+    userFunctionalitySpanish:
+      "El usuario puede navegar por el sitio, realizar un test que le ayudará a identificar el plan nutricional más adecuado a sus necesidades, y finalizar su experiencia con la opción de compra. Tras completar la compra, recibirá un correo de confirmación. Si adquiere un plan nutricional, se le enviará un formulario que deberá completar con la información solicitada por el profesional. Una vez enviado el formulario, el profesional elaborará un plan nutricional personalizado basado en sus respuestas. Si el usuario compra un ebook, este será adjuntado automáticamente en el correo de confirmación para su descarga inmediata.",
+    userFunctionalityEnglish:
+      "The user can navigate the site, take a test that will help identify the most suitable nutritional plan for their needs, and complete the experience with a purchase option. After completing the purchase, they will receive a confirmation email. If they purchase a nutritional plan, a form will be sent to them, which they must fill out with the information requested by the professional. Once the form is submitted, the professional will create a personalized nutritional plan based on their answers. If the user buys an ebook, it will be automatically attached to the confirmation email for immediate download.",
+      adminFunctionalitySpanish:"Cuando un usuario completa una compra, el administrador recibirá automáticamente un correo electrónico con los datos del comprador. Está previsto desarrollar un panel de administración que permitirá gestionar el contenido del sitio de manera eficiente.",
+      adminFunctionalityEnglish:
+      "When a user completes a purchase, the administrator will automatically receive an email with the buyer's information. A management panel is planned to be developed to efficiently manage the site's content.",
+    appDomain:"https://www.nutriendolavida.fit/"
+
+  },
+
+  {
+    name: "ZMdevs",
+    path: zmDevs,
+    infoSpanish: "Landing page",
+    infoEnglish: "Landing page",
+    tecnologias: [
+      "Javascript",
+      "React",
+      "Sass",
+      "Github",
+    ],
+    descriptionSpanish:
+      "Una landing page para una consultora de desarrollo de software se enfoca en captar la atención de potenciales clientes de manera clara y directa. Presenta los servicios y proyectos más relevantes, guiando al visitante hacia acciones concretas como solicitar una consulta o contactar para soluciones",
+    descriptionEnglish:
+      "A landing page for a software development consultancy focuses on capturing the attention of potential clients clearly and directly. It showcases the most relevant services and projects, guiding visitors toward concrete actions such as requesting a consultation or reaching out for tailored solutions.",
+      userFunctionalitySpanish:
+      "El usuario puede explorar los servicios ofrecidos, conocer a los clientes con los que ha trabajado, y acceder a un formulario de contacto para consultas. Además, tiene la opción de comunicarse a través de WhatsApp y seguir las redes sociales de la empresa para mantenerse actualizado sobre sus novedades y ofertas.",
+
+      userFunctionalityEnglish:"The user can explore the services offered, learn about the clients the company has worked with, and access a contact form for inquiries. Additionally, they have the option to communicate via WhatsApp and follow the company's social media to stay updated on news and offers.",
+    
+    appDomain:"https://www.zmdevs.com/"
+
+  },
   {
     name: "Polirubro",
     path: Polirubro,
@@ -156,7 +213,7 @@ export const projectsInfo: ProjectInfo[] = [
       "The administrator will have access to the list of registered deliverers, will be able to verify the activity status of those who are making deliveries at that moment, as well as view the number of packages assigned to each deliverer. Additionally, you will be able to create, view and edit the details of the packages that must be sent.",
     backLink: "https://github.com/FranMack/fastDelivery-api",
     frontLink: "https://github.com/FranMack/fastDelivery-backoffice",
-    frontLink2:"https://github.com/FranMack/fastDelivery-delivery",
+    frontLink2: "https://github.com/FranMack/fastDelivery-delivery",
     videoIdUser: "pxm56tJkOnw",
     videoIdAdmin: "ukdIW-132MQ",
   },
@@ -206,7 +263,8 @@ export const projectsInfo: ProjectInfo[] = [
       "The users will be the company's employees, who through this application will be able to quickly and effectively report if a work tool has broken down and needs to be replaced or repaired.",
     adminFunctionalitySpanish:
       "El administrador recibira los reportes de falla, y podra administrar el estado de los mismos a medida que se vayan dando respuesta a cada uno. (NO DESARROLADO)",
-    adminFunctionalityEnglish:"The administrator will receive the failure reports, and will be able to manage their status as each one is responded to. (NOT DEVELOPED)",
+    adminFunctionalityEnglish:
+      "The administrator will receive the failure reports, and will be able to manage their status as each one is responded to. (NOT DEVELOPED)",
     backLink: "https://github.com/FranMack/Back---Final-Proyect-Globant-",
     frontLink: "https://github.com/FranMack/Front---Final-Proyect-Globant-",
     videoIdUser: "BwVZwwgftHc",
