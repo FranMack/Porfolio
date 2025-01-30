@@ -265,7 +265,7 @@ const git = (
   </svg>
 );
 
-const github = (
+export const github = (
   <svg
     className={`${clase}`}
     xmlns="http://www.w3.org/2000/svg"
