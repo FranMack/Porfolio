@@ -34,7 +34,7 @@ function Projects({ referencia }: ProjectsProps) {
                 <h3 className="text-[1.8rem] font-semibold mb-[2%]">
                   {project.name}
                 </h3>
-                <p className=" mb-[2%] sm:text-[1.3rem] xs:text-[1.1rem] hidden lg:block">
+                <p className=" mb-[2%] sm:text-[1.3rem] xs:text-[1.1rem] hidden lg:block text-center">
                   {`${
                     chosenLanguage === "english"
                       ? project.infoEnglish

@@ -212,7 +212,9 @@ function ProjectInfo() {
                   onClick={handleAppDomain}
                   className="  text-primaryColor border-primaryColor border-[2px]  font-semibold xs:px-[3%] xs:py-[1%]  lg:px-[5%] lg:py-[2%] rounded-md hover:scale-[1.05] hover:shadow-lg hover:shadow-primaryColor"
                 >
-                  Visitar el sitio
+            {`${
+                  chosenLanguage === "english" ? "Visite site" : "Visitar sitio"
+                }`}
                 </button>}
             </article>
 
