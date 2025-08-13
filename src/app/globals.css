@@ -1,26 +1,366 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #00ce7d;
+  --color-secondary: #f0f0f0;
+  --color-bgColor: #121212;
+  --screen-xs: 320px;
+  --screen-sm: 600px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primaryColor: #00ce7d;
+  --secundaryColor: white;
+  --bgColor: #121212;
+  --gradient1: rgba(18, 18, 18, 1);
+  --gradient2: rgba(0, 206, 125, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* For Firefox. */
+  * {
+    scrollbar-width: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+   
+  }
+
+  body {
+    background-color: var(--bgColor);
+    color: var(--secundaryColor);
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.fondoStart {
+  background: linear-gradient(
+    -51deg,
+    var(--gradient1) 85%,
+    var(--gradient2) 100%
+  );
+  animation-name: fondoStart;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes fondoStart {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fondo {
+  background: linear-gradient(
+    231deg,
+    var(--gradient1) 85%,
+    var(--gradient2) 100%
+  );
+}
+
+.textoSinFondo {
+  -webkit-text-stroke: 1px var(--secundaryColor);
+  color: transparent;
+  border-right: 4px solid transparent;
+}
+
+.textMotion {
+  text-align: center;
+  font-weight: 400;
+  display: block;
+  white-space: nowrap;
+  border-right: 4px solid transparent;
+  animation: typing 1.5s steps(24) 2s, blink 0.5s infinite step-end alternate 2s,
+    backgroundEfect 20s 3s infinite linear;
+  overflow: hidden;
+  animation-fill-mode: both;
+  color: transparent;
+  background-color: var(--primaryColor);
+  -webkit-text-stroke: 1px var(--primaryColor);
+  -webkit-background-clip: text;
+
+  background-position: 0 0;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 24ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: var(--primaryColor);
+  }
+}
+
+@keyframes backgroundEfect {
+  100% {
+    background-position: 2000px 0;
+  }
+}
+
+.caricaturaMotion {
+  animation-name: caricaturaMotion;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-delay: 1.5s;
+}
+
+@keyframes caricaturaMotion {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.saludoReveal {
+  animation-name: saludoReveal;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+.saludoReveal2 {
+  animation-name: saludoReveal;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-delay: 0.7s;
+}
+
+.saludoReveal3 {
+  animation-name: saludoReveal;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-delay: 3.6s;
+}
+
+@keyframes saludoReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.revealImage {
+  animation-name: reveal;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 30%;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    scale: 0.5;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0px);
+  }
+}
+
+.tecnoReveal {
+  animation-name: tecoReveal;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes tecoReveal {
+  from {
+    transform: scale(0.1) translateY(-500px);
+  }
+  to {
+    transform: scale(1) translateY(0px);
+  }
+}
+
+.efectoReveal {
+  animation-name: efectoReveal;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes efectoReveal {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.efectoRevealOut {
+  animation-name: efectoRevealOut;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes efectoRevealOut {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+.revealRight {
+  animation-name: revealRight;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+
+@keyframes revealRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.revealRightOut {
+  animation-name: revealRightOut;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+
+@keyframes revealRightOut {
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+.menuHamburAnimation {
+  animation-name: menuHamburAnimation;
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes menuHamburAnimation {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.menuHamburAnimationOut {
+  animation-name: menuHamburAnimationOut;
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes menuHamburAnimationOut {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(400%);
+  }
+}
+
+.menuHamburAnimationInit {
+  transform: translateX(200%);
+  opacity: 0;
+}
+
+.arrowDownAnimation {
+  animation-name: arrowDownAnimation;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation-delay: 3.6s;
+}
+
+@keyframes arrowDownAnimation {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(4px);
+  }
+}
+
+.sombraPerfil {
+  filter: drop-shadow(4px 8px 50px var(--primaryColor));
+}
+
+@media screen and (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--primaryColor);
+    border-radius: 5px; /* Radio de borde del dedo de la barra de desplazamiento */
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(
+      --bgColor
+    ); /* Color de fondo de la pista de la barra de desplazamiento */
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: red;
+    width: 20px;
+    height: 20px;
+  }
 }

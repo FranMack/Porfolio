@@ -1,14 +1,14 @@
+import { Navbar } from "@/components";
+import LanguageContextProvider from "@/context/LanguageContext";
+import ModalContextProvider from "@/context/ModalContext";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
+import { ToastContainer } from "react-toastify";
 import "./globals.css";
+import { MobileMenu } from "@/components/ui/MobileMenu";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 
@@ -24,10 +24,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${poppins.className} antialiased`}>
+        <LanguageContextProvider>
+          <ModalContextProvider>
+        <Navbar />
+        <MobileMenu/>
+          {children}
+        <ToastContainer style={{ fontSize: "1rem" }} />
+        </ModalContextProvider>
+        </LanguageContextProvider>
       </body>
     </html>
   );
