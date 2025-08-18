@@ -1,7 +1,5 @@
 "use client";
 import { useScrollAnimation } from "@/app/hooks/useScrollAnimation";
-import {LanguageContext} from "@/context/LanguageContext";
-import { useContext } from "react";
 
 interface Props {
   text: string;

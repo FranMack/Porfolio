@@ -7,8 +7,7 @@ import { useContext } from "react";
 
 export const AboutMe = () => {
   const { chosenLanguage } = useContext(LanguageContext);
-  const cvSpanish = "";
-  const cvEnglish = "";
+
   return (
     <section
     id="aboutMe"

@@ -1,13 +1,11 @@
 import { ErrorMessage, useField } from 'formik';
 import React from 'react'
 
-interface Props {
-
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  label:string
+  label: string;
   type: "text" | "email" | "password";
   placeHolder?: string;
-  [x: string]: any
 }
 
 export const MyTextInput = ({label, ...props}:Props) => {

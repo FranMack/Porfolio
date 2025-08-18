@@ -21,7 +21,7 @@ const itemsNavbar: Item[] = [
 ];
 
 export function Navbar() {
-  const { menuOpen, togleMenu } = useContext(ModalContext);
+  const { togleMenu } = useContext(ModalContext);
   const [scrollPosition, setScrolPosition] = useState<number>(0);
 
   useEffect(() => {

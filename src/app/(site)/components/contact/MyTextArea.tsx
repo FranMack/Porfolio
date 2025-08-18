@@ -1,10 +1,9 @@
 import { ErrorMessage, useField } from "formik";
 
-interface Props {
+interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
   label: string;
   placeHolder?: string;
-  [x: string]: any;
 }
 
 export const MyTextArea = ({ label, ...props }: Props) => {
