@@ -3,5 +3,5 @@ export const envs = {
   MAILER_EMAIL: process.env.MAILER_EMAIL!,
   MAILER_SECRET_KEY: process.env.MAILER_SECRET_KEY!,
   MAIL_RECEPTION: process.env.MAIL_RECEPTION!,
-  DOMAIN: process.env.DOMAIN!,
+  DOMAIN: process.env.NEXT_PUBLIC_DOMAIN!,
 };
