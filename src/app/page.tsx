@@ -1,8 +1,8 @@
-import { AboutMe } from "./pages/AboutMe";
-import { Contact } from "./pages/Contact";
-import { Hero } from "./pages/Hero";
-import { Projects } from "./pages/Projects";
-import { Technologies } from "./pages/Technologies";
+import { AboutMe } from "./home-sections/AboutMe";
+import { Contact } from "./home-sections/Contact";
+import { Hero } from "./home-sections/Hero";
+import { Projects } from "./home-sections/Projects";
+import { Technologies } from "./home-sections/Technologies";
 
 
 export default function Home() {
