@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FaDownload } from "react-icons/fa";
 
 const cvEnglish =
-  "https://drive.google.com/file/d/1NCuHO7_WfAe7rAief985Za574Uk4U70Q/view?usp=drive_link";
+  "https://drive.google.com/file/d/1TsPL6Nyj4eioZ6EeKynk8n93-c5ryr_L/view?usp=drive_link";
 const cvSpanish =
   "https://drive.google.com/file/d/1NCuHO7_WfAe7rAief985Za574Uk4U70Q/view?usp=drive_link";
 
