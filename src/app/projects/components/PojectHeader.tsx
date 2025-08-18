@@ -37,7 +37,7 @@ export const PojectHeader = ({
   };
 
   return (
-    <div className="bg-gradient-to-r from-green-800 via-green-600 to-green-500 p-6">
+    <div className="bg-gradient-to-r from-gray-900 via-green-800 to-green-600 p-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h2 className="text-3xl font-bold text-white mb-2">{title}</h2>

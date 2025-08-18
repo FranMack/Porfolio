@@ -46,7 +46,7 @@ const ProjectShowcase = () => {
 
   return (
     <section className=" w-screen h-auto min-h-screen flex items-center">
-      <div className="max-w-[80%] mx-auto bg-gray-100 dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-800 my-[15vh]">
+      <div className="max-w-[80%] mx-auto bg-bgColor dark:bg-gray-900 rounded-3xl  overflow-hidden my-[15vh] shadow-lg shadow-primary">
         {/* Header con metadatos */}
         <PojectHeader
           title={title}
@@ -65,19 +65,19 @@ const ProjectShowcase = () => {
           <div className="space-y-6">
             {/* Descripción */}
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-semibold text-[#ffff] dark:text-white mb-3">
                 {chosenLanguage === "english"
                   ? "About the project"
                   : " Sobre el proyecto"}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-[#ffff] dark:text-gray-300 leading-relaxed">
                 {chosenLanguage === "english" ? descriptionENG : descriptionESP}
               </p>
             </div>
 
             {/* Características destacadas */}
-            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+            <div className="bg-gray-900  dark:bg-gray-800/50 rounded-2xl p-6">
+              <h3 className="text-lg font-semibold text-[#ffff] dark:text-white mb-3">
                 {chosenLanguage === "english"
                   ? "Featured Features"
                   : "Características destacadas"}
@@ -87,7 +87,7 @@ const ProjectShowcase = () => {
                   return (
                     <div
                       key={item}
-                      className="flex items-center text-gray-800 dark:text-gray-300"
+                      className="flex items-center text-[#ffff] dark:text-gray-300"
                     >
                       <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                       <span>{item}</span>

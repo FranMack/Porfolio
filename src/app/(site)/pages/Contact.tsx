@@ -21,7 +21,7 @@ export const Contact = () => {
       <div className="w-full h-auto h-min-[90vh]  flex justify-center items-center lg:flex-row flex-col items-center  ">
         <ContactInfo />
 
-        <div className={`formulario  w-1/2 w-[100%]`}>
+        <div className={`formulario  sm:w-1/2 w-[100%]`}>
           <ContactForm />
         </div>
       </div>

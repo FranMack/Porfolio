@@ -62,7 +62,7 @@ export const Carrousel = ({ images, technologies }: Props) => {
   return (
     <div className="space-y-4">
       <div className="relative group bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden">
-        <div className="aspect-video relative">
+        <div className="aspect-auto relative border">
           {isImageLoading && (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700 animate-pulse">
               <div className="w-8 h-8 border-4 border-violet-200 border-t-primary rounded-full animate-spin"></div>
@@ -115,7 +115,7 @@ export const Carrousel = ({ images, technologies }: Props) => {
       )}
 
       <div>
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+        <h3 className="text-xl font-semibold text-[#ffff] dark:text-white mb-4">
           {chosenLanguage === "english"
             ? "Technologies used"
             : "Tecnologías utilizadas"}
