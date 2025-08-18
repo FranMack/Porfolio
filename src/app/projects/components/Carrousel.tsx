@@ -66,7 +66,7 @@ const getTechColor = (tech: string) => {
   return (
     <div className="space-y-4">
       <div className="relative group bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden">
-        <div className="aspect-auto relative border">
+        <div className="aspect-auto relative">
           {isImageLoading && (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700 animate-pulse">
               <div className="w-8 h-8 border-4 border-violet-200 border-t-primary rounded-full animate-spin"></div>
@@ -108,7 +108,7 @@ const getTechColor = (tech: string) => {
             <button
               key={index}
               onClick={() => goToImage(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 hover:scale-125 ${
                 index === currentImage
                   ? "bg-primary"
                   : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"

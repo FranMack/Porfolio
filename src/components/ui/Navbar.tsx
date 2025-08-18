@@ -45,7 +45,7 @@ export function Navbar() {
       <nav
         className={`${
           scrollPosition > 0 && "shadow-sm shadow-primary bg-bgColor"
-        } w-full h-[12vh]  items-center justify-between fixed  z-40  hidden md:flex`}
+        } w-full h-[12vh]  items-center justify-between fixed  z-40  hidden lg:flex`}
       >
         <Link
           href="/#home"
@@ -92,7 +92,7 @@ export function Navbar() {
       <nav
         className={`${
           scrollPosition > 0 && "shadow-sm shadow-primaryColor bg-bgColor"
-        } w-full h-[12vh] flex md:hidden items-center justify-between fixed shadow-lg shadow-shodowGrey400  z-40`}
+        } w-full h-[12vh] flex lg:hidden items-center justify-between fixed shadow-lg shadow-shodowGrey400  z-40`}
       >
         <h3
           // onClick={() => scrollHandler(itemsNavbar[0].scroll)}

@@ -46,7 +46,7 @@ const ProjectShowcase = () => {
 
   return (
     <section className=" w-screen h-auto min-h-screen flex items-center">
-      <div className="max-w-[80%] mx-auto bg-bgColor dark:bg-gray-900 rounded-3xl  overflow-hidden my-[15vh] shadow-lg shadow-primary">
+      <div className="max-w-[90%] sm:max-w-[80%] mx-auto bg-bgColor dark:bg-gray-900 rounded-3xl  overflow-hidden my-[15vh] shadow-lg shadow-primary">
         {/* Header con metadatos */}
         <PojectHeader
           title={title}
@@ -57,7 +57,7 @@ const ProjectShowcase = () => {
           date={date}
         />
 
-        <div className="grid lg:grid-cols-2 gap-8 p-8">
+        <div className="grid lg:grid-cols-2 gap-8  p-4 sm:p-8">
           {/* Carrusel de imágenes */}
           <Carrousel technologies={technologies} images={images} />
 

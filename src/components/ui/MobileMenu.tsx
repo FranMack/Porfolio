@@ -35,7 +35,7 @@ export function MobileMenu() {
           style={{ marginLeft: "1%", marginTop: "1%", fontSize: "1.3rem",cursor:"pointer" }}
         />
       </div>
-      <h2 className="text-[7vh] text-center my-[20%]">FJM</h2>
+      <h2 className="text-[7vh] text-center my-[20%] sm:my-[5%]">FJM</h2>
       <ul className="flex flex-col justify-evenly items-center w-[80%] h-[55%] mx-auto mb-[10%] border-solid border-t-2 ">
         {itemsNavbar.map((item, i) => (
           <Link
