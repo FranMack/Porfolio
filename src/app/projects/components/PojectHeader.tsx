@@ -1,5 +1,5 @@
 "use client";
-import {LanguageContext} from "@/context/LanguageContext";
+import { LanguageContext } from "@/context/LanguageContext";
 import { useContext } from "react";
 import {
   FaCalendar,
@@ -32,8 +32,12 @@ export const PojectHeader = ({
       "En desarrollo": "bg-yellow-100 text-yellow-800 border-yellow-200",
       Pausado: "bg-gray-100 text-gray-800 border-gray-200",
       Beta: "bg-blue-100 text-blue-800 border-blue-200",
-    };
-    return colors[status] || "bg-gray-100 text-gray-800 border-gray-200";
+    } as const;
+
+    return (
+      colors[status as keyof typeof colors] ||
+      "bg-gray-100 text-gray-800 border-gray-200"
+    );
   };
 
   return (

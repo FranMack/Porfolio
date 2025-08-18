@@ -1,6 +1,6 @@
 "use client";
 
-import {LanguageContext} from "@/context/LanguageContext";
+import { LanguageContext } from "@/context/LanguageContext";
 import Image, { StaticImageData } from "next/image";
 import { title } from "process";
 import { useContext, useState } from "react";
@@ -35,29 +35,33 @@ export const Carrousel = ({ images, technologies }: Props) => {
     setIsImageLoading(false);
   };
 
-  const getTechColor = (tech: string) => {
-    const colors = {
-      React: "bg-blue-500",
-      TypeScript: "bg-blue-600",
-      Javascript: "bg-yellow-500",
-      "Node js": "bg-green-600",
-      Express: "bg-gray-800",
-      PostgreSQL: "bg-blue-700",
-      MongoDB: "bg-green-700",
-      Sass: "bg-cyan-500",
-      "Tailwind CSS": "bg-cyan-500",
-      "Next.js": "bg-gray-800",
-      "Vue.js": "bg-green-500",
-      Mongoose: "bg-red-800",
-      JWT:"bg-purple-500",
-      Github:"bg-black",
-       "Mercado Pago":"bg-blue-500",
-      Paypal:"bg-blue-800"
+ const colors = {
+  React: "bg-blue-500",
+  TypeScript: "bg-blue-600",
+  Javascript: "bg-yellow-500",
+  "Node js": "bg-green-600",
+  Express: "bg-gray-800",
+  PostgreSQL: "bg-blue-700",
+  MongoDB: "bg-green-700",
+  Sass: "bg-cyan-500",
+  "Tailwind CSS": "bg-cyan-500",
+  "Next.js": "bg-gray-800",
+  "Vue.js": "bg-green-500",
+  Mongoose: "bg-red-800",
+  JWT:"bg-purple-500",
+  Github:"bg-black",
+  "Mercado Pago":"bg-blue-500",
+  Paypal:"bg-blue-800"
+} as const; // hace que las claves sean literales
 
-      
-    };
-    return colors[tech] || "bg-gray-600";
-  };
+type Tech = keyof typeof colors; // tipo de todas las claves de colors
+
+const getTechColor = (tech: string) => {
+  if ((tech as Tech) in colors) {
+    return colors[tech as Tech];
+  }
+  return "bg-gray-600";
+};
 
   return (
     <div className="space-y-4">
