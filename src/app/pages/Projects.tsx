@@ -1,12 +1,12 @@
 "use client";
 import { proyectInfo2 } from "@/app/utils/info2";
 
-import { ProyectItem } from "../components/Proyects/ProyectItem";
-import {LanguageContext} from "@/context/LanguageContext";
+import { LanguageContext } from "@/context/LanguageContext";
 import { useContext } from "react";
+import { ProyectItem } from "../components/Proyects/ProyectItem";
 
 export const Projects = () => {
-const { chosenLanguage } = useContext(LanguageContext);
+  const { chosenLanguage } = useContext(LanguageContext);
 
   return (
     <section id="projects" className="proyectosSection w-full pt-[12vh] ">

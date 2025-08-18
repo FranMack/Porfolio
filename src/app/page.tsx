@@ -4,6 +4,7 @@ import { Hero } from "./pages/Hero";
 import { Projects } from "./pages/Projects";
 import { Technologies } from "./pages/Technologies";
 
+
 export default function Home() {
   return (
     <main className="bg-bgColor">

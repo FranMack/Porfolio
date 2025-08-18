@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowCircleDown } from "react-icons/fa";
-import caricatura2 from "../../../../public/profile_avatar.png";
+import caricatura2 from "../../../public/profile_avatar.png";
 import { useContext } from "react";
 import { LanguageContext } from "@/context/LanguageContext"; 
 

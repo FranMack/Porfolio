@@ -1,7 +1,7 @@
 "use client";
 import { useScrollAnimation } from "@/app/hooks/useScrollAnimation";
 import Image from "next/image";
-import aboutMePicture from "../../../../../public/profilePicture.jpg";
+import aboutMePicture from "../../../../public/profilePicture.jpg";
 
 export const ProfileImage = () => {
   const refTitle = useScrollAnimation<HTMLDivElement>("efectoReveal");

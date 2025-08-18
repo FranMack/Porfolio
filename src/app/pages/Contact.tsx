@@ -1,14 +1,14 @@
 "use client";
 import { Footer } from "@/components";
+import { LanguageContext } from "@/context/LanguageContext";
+import Link from "next/link";
+import { useContext } from "react";
 import { FaArrowCircleUp } from "react-icons/fa";
 import { ContactForm } from "../components";
 import { ContactInfo } from "../components/contact/ContactInfo";
-import Link from "next/link";
-import {LanguageContext} from "@/context/LanguageContext";
-import { useContext } from "react";
 
 export const Contact = () => {
- const { chosenLanguage } = useContext(LanguageContext);
+  const { chosenLanguage } = useContext(LanguageContext);
 
   return (
     <section
@@ -27,7 +27,7 @@ export const Contact = () => {
       </div>
       <div className="w-full flex justify-center mb-[2%]">
         <Link
-        href="/#home"
+          href="/#home"
           // onClick={() => scrollHandler(itemsNavbar[0].scroll)}
           className="text-[6vh] rounded-full text-primary  arrowDownAnimation hover:shadow-lg hover:shadow-primary"
         >

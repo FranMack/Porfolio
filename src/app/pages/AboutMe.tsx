@@ -1,16 +1,15 @@
 "use client";
 import { infoAboutMe } from "@/app/utils";
-import { DowloadCv, Paragraph, ProfileImage } from "../components/AboutMe";
-import {LanguageContext} from "@/context/LanguageContext";
+import { LanguageContext } from "@/context/LanguageContext";
 import { useContext } from "react";
-
+import { DowloadCv, Paragraph, ProfileImage } from "../components/AboutMe";
 
 export const AboutMe = () => {
   const { chosenLanguage } = useContext(LanguageContext);
 
   return (
     <section
-    id="aboutMe"
+      id="aboutMe"
       className={`sectionAboutMe w-screen h-auto pt-[12vh] overflow-hidden text-secondary`}
     >
       <h2 className="ml-[5%] text-[1.5rem] font-medium">{`${
