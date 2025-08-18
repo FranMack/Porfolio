@@ -6,6 +6,7 @@ import ModalContextProvider from "@/context/ModalContext";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { ToastContainer } from "react-toastify";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const poppins = Poppins({
@@ -60,6 +61,7 @@ export default function RootLayout({
             <ToastContainer style={{ fontSize: "1rem" }} />
           </ModalContextProvider>
         </LanguageContextProvider>
+        <Analytics />
       </body>
     </html>
   );
