@@ -6,11 +6,11 @@ import ModalContextProvider from "@/context/ModalContext";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { ToastContainer } from "react-toastify";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const poppins = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["100","200","300","400","500","600","700","800","900"],
   subsets: ["latin"],
 });
 
@@ -38,20 +38,17 @@ export const metadata: Metadata = {
     images: `${envs.DOMAIN}/favicon.png`,
   },
   authors: { name: "Francisco Mackinnon", url: `${envs.DOMAIN}` },
+  alternates: {
+    canonical: `${envs.DOMAIN}`,
+  },
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
-        <link rel="canonical" href={`${envs.DOMAIN}`} />
-      </head>
+    <html lang="es">
       <body className={`${poppins.className} antialiased`}>
         <LanguageContextProvider>
           <ModalContextProvider>
