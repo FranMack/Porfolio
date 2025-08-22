@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     canonical: `${envs.DOMAIN}`,
   },
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.ico",
   },
 };
 
